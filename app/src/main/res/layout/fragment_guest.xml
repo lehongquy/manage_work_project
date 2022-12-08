@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/signup"
+    tools:context="com.example.managerworkofstatecadres.qr.">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginVertical="110dp">
+
+        <ImageView
+            android:background="@drawable/boder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/creeateaccount" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="7">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginVertical="5dp"
+                android:layout_weight="1"
+                android:background="@color/teal_200"
+                android:gravity="center"
+                android:paddingHorizontal="50dp"
+                android:text="Find Account"
+                android:textSize="30dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="#03A9F4"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8.5"
+                    android:src="@drawable/ic_baseline_phone_24"></ImageView>
+
+                <EditText
+                    android:id="@+id/id_inputphone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:hint="Input Number Phone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="#03A9F4"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8.5"
+                    android:src="@drawable/ic_baseline_vpn_key_24"></ImageView>
+
+                <EditText
+                    android:id="@+id/id_inputpass"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:hint="Input password" />
+            </LinearLayout>
+
+            <Button
+                android:textColor="@color/white"
+                android:id="@+id/id_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

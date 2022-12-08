@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundlogo"
+    tools:context="com.example.managerworkofstatecadres.login.screenLogin">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/boder"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="180dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/teal_200"
+                android:gravity="center"
+                android:layout_marginVertical="2dp"
+                android:paddingHorizontal="40dp"
+                android:text="Login"
+
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="14dp"
+                android:layout_weight="1"
+                android:background="#03A9F4"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8.5"
+                    android:src="@drawable/ic_baseline_person_24">
+
+                </ImageView>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:id="@+id/id_inputuser"
+                    android:hint="Input user(Phone)" />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="#03A9F4"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8.5"
+                    android:src="@drawable/ic_baseline_vpn_key_24">
+
+                </ImageView>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:hint="Input password"
+                    android:id="@+id/id_inputpass"
+                    />
+            </LinearLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:stretchColumns="1"
+                android:layout_margin="2dp"
+                android:shrinkColumns="0"
+                >
+                <TableRow>
+                    <TextView
+                    android:layout_width="wrap_content"
+                        android:layout_column="0"
+                        android:id="@+id/id_forgot"
+                        android:textColor="@color/black"
+                    android:layout_height="match_parent"
+                    android:text="Forgot password"/>
+                    <TextView
+                    android:paddingHorizontal="40dp"
+                    android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                    android:layout_height="match_parent"
+                    android:text="Signup"
+                        android:id="@+id/id_signup"
+                        android:layout_column="2"/></TableRow>
+
+            </TableLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:id="@+id/id_login"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

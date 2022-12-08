@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/id_qrcode"
+    android:icon="@drawable/ic_baseline_qr_code_scanner_24"
+    android:title="QR scan"/>
+    <item android:id="@+id/id_guest"
+        android:icon="@drawable/ic_baseline_connect_without_contact_24"
+        android:title="Guest"/>
+</menu>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.managerworkofstatecadres.listWork.work.work">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/namentholder"
+            android:text="Candidate Trip"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="#000"/>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/nametxholder"
+            android:text="Candidate nametx"
+            android:textSize="25sp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/departureholder"
+            android:text="Candidate Departure"
+            android:textSize="25sp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tripholder"
+            android:text="Candidate Trip"
+            android:textSize="25sp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/licenseholder"
+            android:text="Candidate License"
+            android:textSize="25sp"
+            android:textColor="#000"/>
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/peopleholder"
+        android:text="Candidate People"
+        android:textSize="25sp"
+        android:textColor="#000"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:id="@+id/idUpdate"/>
+        <Button
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/idDelete"
+            android:text="Delete"/>
+    </LinearLayout>
+</LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

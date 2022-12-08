@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:elevation="8dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nametext"
+            android:text="This is Demo Name"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="#000"
+
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contexttext"
+            android:text="This is Context"
+            android:textSize="25sp"
+            android:layout_below="@id/nametext"
+            android:textColor="#000"
+
+            android:layout_marginLeft="10dp"/>
+
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/timetext"
+            android:text="This is Time"
+            android:textSize="25sp"
+            android:textColor="#000"
+            android:layout_below="@id/contexttext"
+            android:layout_marginLeft="10dp"/>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:weightSum="2"
+      android:id="@+id/one"
+      android:layout_below="@id/timetext">
+
+        <TextView
+            android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/locationtext"
+                android:text="This is Location"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/floorholder"
+            android:text="This is Floor"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_marginLeft="10dp"/>
+  </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/roomholder"
+            android:text="This is Room"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_below="@id/one"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
