@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:layoutDirection="ltr"
+  android:layout_gravity="center"
+
     app:cardBackgroundColor="@android:color/white"
     app:cardCornerRadius="5dp">
     <LinearLayout
@@ -13,7 +14,7 @@
         android:padding="10dp">
 
         <EditText
-            android:id="@+id/nameTx"
+            android:id="@+id/nameDr"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -28,7 +29,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/textLicense"
+            android:id="@+id/Licensevc"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -42,7 +43,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
         <EditText
-            android:id="@+id/textTrip"
+            android:id="@+id/Tripvc"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -56,7 +57,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
         <EditText
-            android:id="@+id/textDeparture"
+            android:id="@+id/Departurevc"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -71,7 +72,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/textPeople"
+            android:id="@+id/Peoplevc"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -84,20 +85,33 @@
             android:textColorHint="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonAdd"
+        <EditText
+            android:id="@+id/Criticalvc"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:background="@drawable/edittext_bg"
+            android:gravity="center"
+            android:hint="Critical"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUpdatevc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15sp"
             android:background="@android:color/holo_blue_dark"
-            android:text="Add"
+            android:text="Update"
             android:textColor="@android:color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonCancel"
+            android:id="@+id/btnExitvc"
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:layout_marginTop="5dp"
@@ -107,4 +121,4 @@
             android:textSize="20dp"
             android:textStyle="bold" />
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</LinearLayout>

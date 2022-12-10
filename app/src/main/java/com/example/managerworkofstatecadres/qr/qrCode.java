@@ -23,6 +23,9 @@ import com.hq.manager_work.R;
 public class qrCode extends Fragment {
     private CodeScanner mCodeScanner;
         TextView view1;
+    public static Fragment newInstance(){
+       return new qrCode();
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,

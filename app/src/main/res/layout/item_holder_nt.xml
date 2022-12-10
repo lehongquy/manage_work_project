@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name notification:"
+            android:text="Name:"
             android:textSize="25dp"
             android:textStyle="bold"/>
         <TextView
@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Context notification:"
+            android:text="Context:"
             android:textSize="25dp"
             android:textStyle="bold"/>
         <TextView
@@ -71,7 +71,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Time notification:"
+            android:text="Time:"
             android:textSize="25dp"
             android:textStyle="bold"/>
         <TextView

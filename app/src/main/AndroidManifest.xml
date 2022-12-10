@@ -17,29 +17,28 @@
         android:theme="@style/Theme.Manager_work"
         tools:targetApi="31">
         <activity
+            android:name="com.example.managerworkofstatecadres.listWork.work.vehiclelist.addwork"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.managerworkofstatecadres.listVehicle.vehiclelist.addvehicle"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name="com.example.managerworkofstatecadres.listNotification.notification"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name="com.example.managerworkofstatecadres.listVehicle.vehicle"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name="com.example.managerworkofstatecadres.listWork.createWork"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name="com.example.managerworkofstatecadres.listWork.deleteWork"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"

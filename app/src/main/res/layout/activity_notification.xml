@@ -4,19 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:weightSum="10"
     tools:context="com.example.managerworkofstatecadres.listNotification.notification"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        >
 <SearchView
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
+    android:layout_weight="9"
     android:layout_height="wrap_content"
     android:id="@+id/seachView"
     android:padding="10dp"
     android:layout_margin="5dp"/>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_margin="10dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_baseline_swipe_up_24"
+        android:id="@+id/sort"/>
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="9"
+        android:id="@+id/recyclerViewnt"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:weightSum="5.5"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerViewnt"/>
+        android:src="@drawable/ic_baseline_list_alt_24"
+        android:id="@+id/listwork"/>
+    <ImageView
+        android:layout_weight="1"
 
+        android:layout_width="wrap_content"
+
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_baseline_airport_shuttle_24"
+        android:id="@+id/listvehicle"/>
+    <ImageView
+        android:layout_weight="1.5"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_baseline_qr_code_scanner_24"
+        android:id="@+id/qr"/>
+    <ImageView
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+
+        android:layout_height="match_parent"
+
+        android:src="@drawable/ic_baseline_add_alert_24"
+        android:id="@+id/listnotification"/>
+    <ImageView
+        android:layout_weight="1"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_baseline_person_24"
+        android:id="@+id/listprofile"/>
+</LinearLayout>
 
 
 </LinearLayout>

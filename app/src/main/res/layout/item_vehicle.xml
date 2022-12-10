@@ -12,28 +12,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="10"
+    android:id="@+id/one"
+    android:orientation="horizontal">
         <TextView
             android:id="@+id/text_view_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:ellipsize="end"
+            android:layout_weight="9"
             android:maxLines="1"
             android:text="Trip"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:id="@+id/text_view_critical"
+    android:gravity="center"
+    android:text="1"/>
+</LinearLayout>
         <TextView
             android:id="@+id/text_view_namedriver"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@id/text_view_title"
+            android:layout_below="@id/one"
             android:text="Name Driver" />
         <TextView
             android:id="@+id/text_view_departure"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@id/text_view_namedriver"
@@ -41,14 +53,14 @@
 
         <TextView
             android:id="@+id/text_view_license"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@id/text_view_departure"
             android:text="License" />
         <TextView
             android:id="@+id/text_view_people"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@id/text_view_license"

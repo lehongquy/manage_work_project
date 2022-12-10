@@ -22,30 +22,35 @@ import com.hq.manager_work.R;
 
 public class guestInfor extends Fragment {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mosc-47a15-default-rtdb.firebaseio.com/");
-    EditText edtphone ,edtpass;
+    EditText edtphone, edtpass;
 
     TextView btnfind;
 
 
-    public guestInfor() {
+    public static Fragment newInstance() {
+        return new guestInfor();
         // Required empty public constructor
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        edtphone = getActivity().findViewById(R.id.id_inputphone);
-        edtpass = getActivity().findViewById(R.id.id_inputpass);
-        btnfind=getActivity().findViewById(R.id.id_find);
-        btnfind.setOnClickListener(v-> one());
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_guest, container, false);
+        View view = inflater.inflate(R.layout.fragment_guest, container, false);
+        initView(view);
+        return view;
+    }
+
+    public void initView(View view){
+        edtphone = view.findViewById(R.id.id_inputphone);
+        edtpass = view.findViewById(R.id.id_inputpass);
+        btnfind=view.findViewById(R.id.id_find);
+        btnfind.setOnClickListener(v-> one());
     }
     public void  one(){
 
