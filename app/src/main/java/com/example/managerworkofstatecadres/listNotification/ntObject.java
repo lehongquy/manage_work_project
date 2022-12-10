@@ -4,6 +4,9 @@ public class ntObject
 {
     String nament, contextnt, timent,critical;
 
+    public ntObject() {
+    }
+
     public ntObject(String nament, String contextnt, String timent, String critical) {
         this.nament = nament;
         this.contextnt = contextnt;

@@ -55,9 +55,9 @@ public class screenSignup extends AppCompatActivity {
         String gmail = edtgmail.getText().toString();
         String pass = edtpass.getText().toString();
         String position ="Low-level cadres";
-        String vehicle = "vehicle";
-        String work = "work";
-        String notification ="notification";
+        String vehicle = "vehicle"+phone;
+        String work = "work"+phone;
+        String notification ="notification"+phone;
 
         String repass = edtrepass.getText().toString();
         if (userName.isEmpty() || phone.isEmpty() || gmail.isEmpty() || pass.isEmpty() || repass.isEmpty()) {
@@ -81,18 +81,60 @@ public class screenSignup extends AppCompatActivity {
 
                         databaseReference.child("user").child(phone).child(vehicle).child("vehicle1").child("license").setValue("29D1-29854");
                         databaseReference.child("user").child(phone).child(vehicle).child("vehicle1").child("trip").setValue("Bộ thông tin");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle1").child("namedriver").setValue("NguyenVanA");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle1").child("departure").setValue("9:00");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle1").child("people").setValue("2");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle1").child("critical").setValue("1");
+
                         databaseReference.child("user").child(phone).child(vehicle).child("vehicle2").child("license").setValue("29D1-28345");
                         databaseReference.child("user").child(phone).child(vehicle).child("vehicle2").child("trip").setValue("Bộ nông nghiệp");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle2").child("namedriver").setValue("NguyenVanB");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle2").child("departure").setValue("8:00");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle2").child("people").setValue("3");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle2").child("critical").setValue("1");
+
                         databaseReference.child("user").child(phone).child(vehicle).child("vehicle3").child("license").setValue("29D1-28344");
                         databaseReference.child("user").child(phone).child(vehicle).child("vehicle3").child("trip").setValue("Bộ quốc phòng");
-                        databaseReference.child("user").child(phone).child(work).child("work1").setValue("Gặp bộ trưởng bô thông tin");
-                        databaseReference.child("user").child(phone).child(work).child("work2").setValue("Gặp bộ trưởng bô nông nghiệp");
-                        databaseReference.child("user").child(phone).child(work).child("work3").setValue("Gặp bộ trưởng bô quốc phòng");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle3").child("namedriver").setValue("NguyenVanc");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle3").child("departure").setValue("10:00");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle3").child("people").setValue("2");
+                        databaseReference.child("user").child(phone).child(vehicle).child("vehicle3").child("critical").setValue("2");
 
-                        databaseReference.child("user").child(phone).child("notification").child("notification1").setValue("họp khẩn các bộ");
-                        databaseReference.child("user").child(phone).child("notification").child("notification2").setValue("họp khẩn các ban");
-                        databaseReference.child("user").child(phone).child("notification").child("notification3").setValue("họp khẩn các sở");
+                        databaseReference.child("user").child(phone).child(work).child("work1").child("namecv").setValue("Gặp bộ trưởng bô thông tin");
+                        databaseReference.child("user").child(phone).child(work).child("work1").child("contextcv").setValue("Bàn về công nghệ mới trong lĩnh vực cntt");
+                        databaseReference.child("user").child(phone).child(work).child("work1").child("timecv").setValue("10");
+                        databaseReference.child("user").child(phone).child(work).child("work1").child("location").setValue("Cục cntt và tt");
+                        databaseReference.child("user").child(phone).child(work).child("work1").child("floor").setValue("3");
+                        databaseReference.child("user").child(phone).child(work).child("work1").child("room").setValue("P305");
 
+                        databaseReference.child("user").child(phone).child(work).child("work2").child("namecv").setValue("Gặp bộ trưởng bô nông nghiệp");
+                        databaseReference.child("user").child(phone).child(work).child("work2").child("contextcv").setValue("Bàn về phát triển đê ngăn lũ");
+                        databaseReference.child("user").child(phone).child(work).child("work2").child("timecv").setValue("9");
+                        databaseReference.child("user").child(phone).child(work).child("work2").child("location").setValue("Cục nông nghiệp");
+                        databaseReference.child("user").child(phone).child(work).child("work2").child("floor").setValue("2");
+                        databaseReference.child("user").child(phone).child(work).child("work2").child("room").setValue("H205");
+
+                        databaseReference.child("user").child(phone).child(work).child("work3").child("namecv").setValue("Gặp bộ trưởng bô quốc phòng");
+                        databaseReference.child("user").child(phone).child(work).child("work3").child("contextcv").setValue("Bàn về thay thế súng quân nhân");
+                        databaseReference.child("user").child(phone).child(work).child("work3").child("timecv").setValue("2");
+                        databaseReference.child("user").child(phone).child(work).child("work3").child("location").setValue("Bộ quốc phòng");
+                        databaseReference.child("user").child(phone).child(work).child("work3").child("floor").setValue("1");
+                        databaseReference.child("user").child(phone).child(work).child("work3").child("room").setValue("G105");
+
+                        databaseReference.child("user").child(phone).child(notification).child("notification1").child("nament").setValue("họp khẩn bộ quốc phòng");
+                        databaseReference.child("user").child(phone).child(notification).child("notification1").child("contextnt").setValue("thay đổi toàn bộ vũ khí chiến đấu của các chiến sĩ");
+                        databaseReference.child("user").child(phone).child(notification).child("notification1").child("timent").setValue("10:00 am");
+                        databaseReference.child("user").child(phone).child(notification).child("notification1").child("critical").setValue("3");
+
+                        databaseReference.child("user").child(phone).child(notification).child("notification2").child("nament").setValue("họp khẩn các bộ");
+                        databaseReference.child("user").child(phone).child(notification).child("notification2").child("contextnt").setValue("tăng trưởng kinh tế");
+                        databaseReference.child("user").child(phone).child(notification).child("notification2").child("timent").setValue("2:00 pm");
+                        databaseReference.child("user").child(phone).child(notification).child("notification2").child("critical").setValue("2");
+
+                        databaseReference.child("user").child(phone).child(notification).child("notification3").child("nament").setValue("họp khẩn các sở");
+                        databaseReference.child("user").child(phone).child(notification).child("notification3").child("contextnt").setValue("tăng trưởng kinh tế");
+                        databaseReference.child("user").child(phone).child(notification).child("notification3").child("timent").setValue("3:00 pm");
+                        databaseReference.child("user").child(phone).child(notification).child("notification3").child("critical").setValue("1");
                         startActivity(new Intent(screenSignup.this, screenLogin.class));
                     }
                 }

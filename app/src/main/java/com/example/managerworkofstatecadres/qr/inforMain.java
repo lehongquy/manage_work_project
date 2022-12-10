@@ -1,26 +1,64 @@
 package com.example.managerworkofstatecadres.qr;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 
+import com.example.managerworkofstatecadres.listNotification.notification;
+import com.example.managerworkofstatecadres.listVehicle.vehicle;
+import com.example.managerworkofstatecadres.listWork.work.work;
+import com.example.managerworkofstatecadres.profile.profile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.hq.manager_work.R;
 
 
 public class inforMain extends AppCompatActivity {
     private ViewPager2 viewPager2;
     private BottomNavigationView view;
-
+    ImageView listvehicle,listwork,notification1,profile1;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infor);
         viewPager2 = findViewById(R.id.viewpage2);
         view = findViewById(R.id.bottomNv);
+        listvehicle = findViewById(R.id.listvehicle4);
+        listwork = findViewById(R.id.listwork4);
+        notification1 = findViewById(R.id.listnotification4);
+        profile1 = findViewById(R.id.listprofile4);
+        Intent intent = getIntent();
+        String phone = intent.getStringExtra("phone");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = database.getReference("user").child(phone);
         myViewPage page = new myViewPage(this);
+        listvehicle.setOnClickListener(view -> {
+            Intent intent1 = new Intent(this, vehicle.class);
+            intent1.putExtra("phone",phone);
+            startActivity(intent1);
+        });
+        listwork.setOnClickListener(view -> {
+            Intent intent1 = new Intent(this, work.class);
+            intent1.putExtra("phone",phone);
+            startActivity(intent1);
+        });
+        notification1.setOnClickListener(view -> {
+            Intent intent1 = new Intent(this, notification.class);
+            intent1.putExtra("phone",phone);
+            startActivity(intent1);
+        });
+        profile1.setOnClickListener(view -> {
+            Intent intent1 = new Intent(this, profile.class);
+            intent1.putExtra("phone",phone);
+            startActivity(intent1);
+        });
         viewPager2.setAdapter(page);
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
