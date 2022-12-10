@@ -1,36 +1,21 @@
 package com.example.managerworkofstatecadres.listVehicle;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class licenad {
-    String nametx,license, departure,trip,people;
+    String namedriver,license, departure,trip,people,critical;
 
     public licenad() {
     }
 
-    public licenad(String nametx, String license, String trip, String departure, String people) {
-        this.nametx = nametx;
-        this.license = license;
-        this.trip = trip;
-        this.departure = departure;
-        this.people = people;
+    public String getNamedriver() {
+        return namedriver;
     }
 
-    public String getNametx() {
-        return nametx;
-    }
-
-
-    public String getDeparture() {
-        return departure;
-    }
-
-    public void setDeparture(String departure) {
-        this.departure = departure;
-    }
-
-    public void setNametx(String nametx) {
-        this.nametx = nametx;
+    public void setNamedriver(String namedriver) {
+        this.namedriver = namedriver;
     }
 
     public String getLicense() {
@@ -39,6 +24,14 @@ public class licenad {
 
     public void setLicense(String license) {
         this.license = license;
+    }
+
+    public String getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(String departure) {
+        this.departure = departure;
     }
 
     public String getTrip() {
@@ -55,6 +48,26 @@ public class licenad {
 
     public void setPeople(String people) {
         this.people = people;
+    }
+
+    public String getCritical() {
+        return critical;
+    }
+
+    public void setCritical(String critical) {
+        this.critical = critical;
+    }
+
+
+    public Map<String, Object> toMap() {
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("namedriver",namedriver);
+        map.put("license",license);
+        map.put("trip",trip);
+        map.put("departure",departure);
+        map.put("critical",critical);
+        map.put("people",people);
+                return map;
     }
 }
 

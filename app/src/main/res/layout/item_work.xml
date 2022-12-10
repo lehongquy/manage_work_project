@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    app:cardBackgroundColor="#FFFFE8">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="10"
+            android:id="@+id/one"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/text_view_titleWk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:ellipsize="end"
+                android:layout_weight="9"
+                android:maxLines="1"
+                android:text="Namecv"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/text_view_criticalWK"
+                android:gravity="center"
+                android:text="1"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/text_view_contextWk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/one"
+            android:text="Name Context" />
+        <TextView
+            android:id="@+id/text_view_timeWk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/text_view_contextWk"
+            android:text="Departure" />
+
+        <TextView
+            android:id="@+id/text_view_license"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/text_view_timeWk"
+            android:text="TimeWk" />
+        <TextView
+            android:id="@+id/text_view_locationWk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/text_view_license"
+            android:text="LocationWk" />
+        <TextView
+            android:id="@+id/text_view_floorWk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/text_view_locationWk"
+            android:text="FloorWk" />
+        <TextView
+            android:id="@+id/text_view_roomWk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/text_view_floorWk"
+            android:text="RoomWk" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_margin="4sp"
+            android:layout_below="@+id/text_view_roomWk"
+            android:padding="4sp"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonDelete"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:background="@android:color/holo_red_light"
+                android:text="DELETE"
+                android:textColor="@android:color/white"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonUpdate"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:background="@android:color/holo_blue_dark"
+                android:text="UPDATE"
+                android:textColor="@android:color/white"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

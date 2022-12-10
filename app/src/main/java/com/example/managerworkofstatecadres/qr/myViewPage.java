@@ -13,15 +13,11 @@ public class myViewPage extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        switch (position){
-            case 0:
-                return new qrCode() ;
+        switch (position) {
             case 1:
-                return new guestInfor();
-            default:
-                return new qrCode();
+                return guestInfor.newInstance();
+            default: return qrCode.newInstance();
         }
-
     }
 
     @Override

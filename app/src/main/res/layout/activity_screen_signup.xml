@@ -3,13 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/signup"
+    android:orientation="vertical"
     tools:context="com.example.managerworkofstatecadres.login.screenSignup">
+    <TextView
 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+
+        android:background="@drawable/boder"
+        android:gravity="center"
+        android:paddingHorizontal="50dp"
+        android:text="Create Account"
+
+        android:textSize="30dp" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="100dp">
 
         <ImageView
             android:layout_width="match_parent"
@@ -26,18 +39,36 @@
             android:orientation="vertical"
             android:weightSum="7">
 
-            <TextView
+
+<RelativeLayout
+    android:layout_width="150dp"
+
+    android:layout_height="150dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="130dp">
+        <ImageView
+            android:id="@+id/id_showimg"
+            android:layout_width="match_parent"
+        android:layout_height="match_parent"
+            android:src="@drawable/imgtest"
+            />
+        <LinearLayout
+            android:id="@+id/id_selectimg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            >
+            <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginVertical="5dp"
-                android:layout_weight="1"
-                android:background="@color/teal_200"
-                android:gravity="center"
-                android:paddingHorizontal="50dp"
-                android:text="Create Account"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_add_a_photo_24"
+                /></LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-                android:textSize="30dp" />
-
+</RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

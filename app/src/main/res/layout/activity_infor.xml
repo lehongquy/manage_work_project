@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".qr.inforMain">
+    tools:context="com.example.managerworkofstatecadres.qr.inforMain">
 <androidx.viewpager2.widget.ViewPager2
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:layout_weight="9"
+    android:layout_weight="8.5"
     android:layout_above="@+id/bottomNv"
      android:id="@+id/viewpage2"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -20,5 +20,51 @@
         android:id="@+id/bottomNv"
         android:background="@color/teal_200"
         app:menu="@menu/bottomnv"
-        />
-</LinearLayout>
+/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:weightSum="5.5"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_list_alt_24"
+                android:id="@+id/listwork4"/>
+            <ImageView
+                android:layout_weight="1"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_airport_shuttle_24"
+                android:id="@+id/listvehicle4"/>
+            <ImageView
+                android:layout_weight="1.5"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_qr_code_scanner_24"
+                />
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+
+                android:layout_height="match_parent"
+
+                android:src="@drawable/ic_baseline_add_alert_24"
+                android:id="@+id/listnotification4"/>
+            <ImageView
+                android:layout_weight="1"
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_person_24"
+                android:id="@+id/listprofile4"/>
+        </LinearLayout>
+    </LinearLayout>

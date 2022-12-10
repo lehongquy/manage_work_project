@@ -1,19 +1,16 @@
 package com.example.managerworkofstatecadres.qr;
 
-public class guestInforControl {
-    private String fullname;
-    private String gmail;
-    private String phone;
-    private String position;
+public class inforGuest {
+    String fullname, gmail,position,phone;
 
-  public guestInforControl() {
-  }
-
-  public guestInforControl(String fullname, String gmail, String phone, String position) {
+    public inforGuest(String fullname, String gmail, String position, String phone) {
         this.fullname = fullname;
         this.gmail = gmail;
-        this.phone = phone;
         this.position = position;
+        this.phone = phone;
+    }
+
+    public inforGuest() {
     }
 
     public String getFullname() {
@@ -32,14 +29,6 @@ public class guestInforControl {
         this.gmail = gmail;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getPosition() {
         return position;
     }
@@ -48,12 +37,21 @@ public class guestInforControl {
         this.position = position;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return
-                "fullname='" + fullname + '\'' +
-                        ", gmail='" + gmail + '\'' +
-                        ", phone='" + phone + '\'' +
-                        ", position='" + position + '\'';
+                "Name='" + fullname + '\n' +
+                "gmail='" + gmail + '\n' +
+                "position='" + position + '\n' +
+                " phone='" + phone
+              ;
     }
 }
