@@ -41,31 +41,32 @@
 
 
 <RelativeLayout
-    android:layout_width="150dp"
+    android:layout_width="100dp"
 
-    android:layout_height="150dp">
+    android:layout_height="100dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="130dp">
+        app:cardCornerRadius="90dp">
         <ImageView
             android:id="@+id/id_showimg"
             android:layout_width="match_parent"
         android:layout_height="match_parent"
             android:src="@drawable/imgtest"
             />
+
         <LinearLayout
             android:id="@+id/id_selectimg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            >
+            android:gravity="center">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_add_a_photo_24"
-                /></LinearLayout>
+                android:src="@drawable/ic_baseline_add_a_photo_24" />
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
@@ -73,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="1.2"
                 android:background="#03A9F4"
                 android:orientation="horizontal"
                 android:weightSum="10">
@@ -98,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="1.2"
                 android:background="#03A9F4"
                 android:orientation="horizontal"
                 android:weightSum="10">
@@ -123,7 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="1.2"
                 android:background="#03A9F4"
                 android:orientation="horizontal"
                 android:weightSum="10">
@@ -149,7 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="1.2"
                 android:background="#03A9F4"
                 android:orientation="horizontal"
                 android:weightSum="10">
@@ -174,7 +175,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="1.2"
                 android:background="#03A9F4"
                 android:orientation="horizontal"
                 android:weightSum="10">
