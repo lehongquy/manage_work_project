@@ -35,6 +35,7 @@ public class qrCode extends Fragment {
         CodeScannerView scannerView = root.findViewById(R.id.scanner_view);
         view1=root.findViewById(R.id.infor_qr);
         mCodeScanner = new CodeScanner(activity, scannerView);
+
         mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
             public void onDecoded(@NonNull final Result result) {

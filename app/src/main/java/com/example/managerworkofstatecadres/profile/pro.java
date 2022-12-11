@@ -55,4 +55,12 @@ public class pro {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public String gettoString() {
+        return
+                "fullname='" + fullname + '\n' +
+                ", gmail='" + gmail + '\n' +
+                ", phone='" + phone + '\n' +
+                ", position='" + position ;
+    }
 }

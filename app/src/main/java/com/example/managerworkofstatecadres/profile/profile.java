@@ -184,8 +184,6 @@ public class profile extends AppCompatActivity {
 
     private void Read() {
         Intent intent = getIntent();
-
-
         String phone = intent.getStringExtra("phone");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("user");
