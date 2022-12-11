@@ -47,14 +47,14 @@ interface   Clicklist1 {
         if (users == null) {
             return;
         }
-        holder.textTitle.setText("Trip : " + users.getNamecv());
-        holder.textContext.setText("Name : " + users.getContextcv());
+        holder.textTitle.setText("Name work: " + users.getNamecv());
+        holder.textContext.setText("Context work: " + users.getContextcv());
 
-        holder.textTime.setText("Departure : " + users.getTimecv());
-        holder.textLocation.setText("License : " + users.getLocation());
-        holder.textFloor.setText("People : " + users.getFloor());
-        holder.textRoom.setText("People : " + users.getRoom());
-        holder.textCritical.setText("Critical:"+users.getCritical());
+        holder.textTime.setText("Time work: " + users.getTimecv());
+        holder.textLocation.setText("Location work: " + users.getLocation());
+        holder.textFloor.setText("Floor work: " + users.getFloor());
+        holder.textRoom.setText("Room work: " + users.getRoom());
+        holder.textCritical.setText("Critical work:"+users.getCritical());
         holder.buttonUpdate.setOnClickListener(view -> {
             mclick.onclickUpdate(users);
         });

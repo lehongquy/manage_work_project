@@ -46,6 +46,7 @@ public class changePass extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (isPasswordChanged()) {
+
                     Toast.makeText(changePass.this, "Saved", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(changePass.this, "No Changes Found", Toast.LENGTH_SHORT).show();
@@ -72,7 +73,7 @@ public class changePass extends AppCompatActivity {
                     String getPass = snapshot.child(phone).child("pass").getValue(String.class);
                     if (getPass.equals(passold)) {
                         if (passnew.equals(passRenew)) {
-                            snapshot.child("user").child(phone).child("pass").getValue();
+                            reference.child("user").child(phone).setValue(passnew);
                             Toast.makeText(changePass.this, "Successfully change", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(changePass.this, screenLogin.class);// Truyền một Boolean
                             intent.putExtra("phone", phone);

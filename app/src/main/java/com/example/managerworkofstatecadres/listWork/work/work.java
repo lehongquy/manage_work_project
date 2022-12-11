@@ -70,6 +70,14 @@ public class work extends AppCompatActivity {
         adapter = new workRecycleAdapter(mlist, new workRecycleAdapter.Clicklist1() {
             @Override
             public void onclickUpdate(workOject user) {
+
+                Intent intent = getIntent();
+                String phone = intent.getStringExtra("phone");
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference databaseReference = database.getReference("user").child(phone).child("work" + phone);
+                databaseReference.child(String.valueOf(user.getNamecv())).removeValue((error, ref) -> {
+                    Toast.makeText(work.this, "Delete Success", Toast.LENGTH_SHORT).show();
+                });
                 openDialogUpdate(user);
             }
 
@@ -133,8 +141,9 @@ public class work extends AppCompatActivity {
             startActivity(intent1);
         });
         profile1.setOnClickListener(view -> {
-
-            startActivity(new Intent(this, profile.class));
+            Intent intent1 = new Intent(this, profile.class);
+            intent1.putExtra("phone",phone);
+            startActivity(intent1);
         });
         super.onStart();
         Query query = databaseReference.orderByChild("critical");
@@ -211,7 +220,7 @@ public class work extends AppCompatActivity {
                         String phone = intent.getStringExtra("phone");
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference databaseReference = database.getReference("user").child(phone).child("work"+phone);
-                        databaseReference.child(String.valueOf(user.getCritical())).removeValue((error, ref) -> {
+                        databaseReference.child(String.valueOf(user.getNamecv())).removeValue((error, ref) -> {
                             Toast.makeText(work.this, "Delete Success", Toast.LENGTH_SHORT).show();
                         });
                     }
@@ -259,7 +268,7 @@ public class work extends AppCompatActivity {
             user.setFloor(newFloor);
             user.setRoom(newRoom);
             user.setLocation(newLocation);
-            databaseReference.child(String.valueOf(user.getCritical())).updateChildren(user.toMap(),(error, ref) ->{
+            databaseReference.child(String.valueOf(user.getNamecv())).updateChildren(user.toMap(),(error, ref) ->{
                 Toast.makeText(this, "Update success", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             } );

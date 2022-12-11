@@ -1,9 +1,13 @@
 package com.example.managerworkofstatecadres.login;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,32 +15,40 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hq.manager_work.R;
+import com.squareup.picasso.Picasso;
 
 public class screenSignup extends AppCompatActivity {
+    private static final int PICK_IMAGE_REQUEST = 1;
+    String img;
     Button btncreate;
     EditText edtuser, edtpass, edtrepass, edtphone, edtgmail;
     TextView loginformsignup;
+    LinearLayout layout;
+    ImageView imageView;
     ProgressBar progressBar;
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mosc-47a15-default-rtdb.firebaseio.com/");
 
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mosc-47a15-default-rtdb.firebaseio.com/");
+    private Uri mImageUri;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_signup);
         btncreate = findViewById(R.id.id_signupaccount);
-        edtuser=findViewById(R.id.id_inputname);
+        edtuser = findViewById(R.id.id_inputname);
         edtpass = findViewById(R.id.id_inputpass);
         edtrepass = findViewById(R.id.id_inputrepass);
         edtphone = findViewById(R.id.id_inputphone);
         edtgmail = findViewById(R.id.id_inputgmail);
-
+        layout = findViewById(R.id.id_selectimg);
+        imageView = findViewById(R.id.id_showimg);
         loginformsignup = findViewById(R.id.id_loginsignup);
         btncreate.setOnClickListener(v -> {
             createAccount();
@@ -46,32 +58,57 @@ public class screenSignup extends AppCompatActivity {
             finish();
         });
 
+        imageView.setOnClickListener(v -> {
+            openFileChooser();
+        });
+    }
 
+    private void openFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            mImageUri = data.getData();
+
+            Picasso.with(this).load(mImageUri).into(imageView);
+             img= mImageUri.toString();
+
+
+        }
     }
 
     void createAccount() {
+
         String userName = edtuser.getText().toString();
         String phone = edtphone.getText().toString();
         String gmail = edtgmail.getText().toString();
         String pass = edtpass.getText().toString();
-        String position ="Low-level cadres";
-        String vehicle = "vehicle"+phone;
-        String work = "work"+phone;
-        String notification ="notification"+phone;
-
+        String position = "Low-level cadres";
+        String vehicle = "vehicle" + phone;
+        String work = "work" + phone;
+        String notification = "notification" + phone;
         String repass = edtrepass.getText().toString();
         if (userName.isEmpty() || phone.isEmpty() || gmail.isEmpty() || pass.isEmpty() || repass.isEmpty()) {
             Toast.makeText(this, "Please input inforMain", Toast.LENGTH_SHORT).show();
-        }
-        else if (!pass.equals(repass)) {
+        } else if (!pass.equals(repass)) {
             Toast.makeText(this, "Please input pass and repass together", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             databaseReference.child("user").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.hasChild(phone)){
+                    if (snapshot.hasChild(phone)) {
                         Toast.makeText(screenSignup.this, "Phone is already", Toast.LENGTH_SHORT).show();
-                    }else {
+                    } else {
+                        databaseReference.child("user").child(phone).child("image").setValue(img);
+
                         databaseReference.child("user").child(phone).child("fullname").setValue(userName);
                         databaseReference.child("user").child(phone).child("phone").setValue(phone);
                         databaseReference.child("user").child(phone).child("pass").setValue(pass);
