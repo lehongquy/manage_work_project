@@ -107,7 +107,6 @@ public class screenSignup extends AppCompatActivity {
                     if (snapshot.hasChild(phone)) {
                         Toast.makeText(screenSignup.this, "Phone is already", Toast.LENGTH_SHORT).show();
                     } else {
-                        databaseReference.child("user").child(phone).child("image").setValue(img);
 
                         databaseReference.child("user").child(phone).child("fullname").setValue(userName);
                         databaseReference.child("user").child(phone).child("phone").setValue(phone);
