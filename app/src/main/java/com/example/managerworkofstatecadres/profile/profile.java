@@ -25,6 +25,7 @@ import com.example.managerworkofstatecadres.listNotification.notification;
 import com.example.managerworkofstatecadres.listVehicle.vehicle;
 import com.example.managerworkofstatecadres.listWork.work.work;
 import com.example.managerworkofstatecadres.login.screenLogin;
+import com.example.managerworkofstatecadres.qr.guestInfor;
 import com.example.managerworkofstatecadres.qr.inforGuest;
 import com.example.managerworkofstatecadres.qr.inforMain;
 import com.example.managerworkofstatecadres.qr.myViewPage;
@@ -192,15 +193,19 @@ public class profile extends AppCompatActivity {
             @SuppressLint("NewApi")
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 pro infor = snapshot.getValue(pro.class);
-                phonepro.setText(infor.getPhone());
-                namepro.setText(infor.getFullname());
-                gmailpro.setText(infor.getGmail());
-                position.setText(infor.getPosition());
-
+                phonepro.setText("Phone:"+infor.getPhone());
+                namepro.setText("Name:"+infor.getFullname());
+                gmailpro.setText("Gmail:"+infor.getGmail());
+                position.setText("Position:"+infor.getPosition());
+                Bundle bundle = new Bundle();
+                bundle.putString("canbo",infor.toString());
+// set Fragmentclass Arguments
+                guestInfor fragobj = new guestInfor();
+                fragobj.setArguments(bundle);
 //                byte[] decodeString = Base64.getDecoder().decode(infor.getImage());
 //                Bitmap decodeByte = BitmapFactory.decodeByteArray(decodeString, 0, decodeString.length);
 //                im.setImageBitmap(decodeByte);
-                bytesToImage(imagepro, infor.getImage());
+                bytesToImage(imagepro, String.valueOf(infor.getImage()));
             }
 
             @Override

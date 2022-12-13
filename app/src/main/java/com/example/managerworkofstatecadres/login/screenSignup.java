@@ -1,10 +1,7 @@
 package com.example.managerworkofstatecadres.login;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
@@ -26,15 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.hq.manager_work.R;
 import com.squareup.picasso.Picasso;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Base64;
-
 public class screenSignup extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
-    String base64;
+    String img;
     Button btncreate;
     EditText edtuser, edtpass, edtrepass, edtphone, edtgmail;
     TextView loginformsignup;
@@ -78,7 +69,7 @@ public class screenSignup extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
-    @SuppressLint({"NewApi", "LocalSuppress"})
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -87,34 +78,13 @@ public class screenSignup extends AppCompatActivity {
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
 
-byte[] imgByte = getByteUri(getApplicationContext(), mImageUri);
- base64 = Base64.getEncoder().encodeToString(imgByte);
-            byte[] decodeString = Base64.getDecoder().decode(base64);
-            Bitmap decodeByte = BitmapFactory.decodeByteArray(decodeString, 0, decodeString.length);
-            imageView.setImageBitmap(decodeByte);
+            Picasso.with(this).load(mImageUri).into(imageView);
+             img= mImageUri.toString();
 
 
         }
     }
-static byte[] getByteUri(Context context,Uri uri){
-    InputStream inputStream= null;
 
-    try {
-        inputStream= context.getContentResolver().openInputStream(uri);
-        ByteArrayOutputStream outputStream= new ByteArrayOutputStream();
-        int buffet = 1024;
-        byte[] buf= new byte[buffet];
-        int leng = 0;
-        while ((leng= inputStream.read(buf))!=-1){
-            outputStream.write(buf,0,leng);
-        }return outputStream.toByteArray();
-    } catch (FileNotFoundException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    return new byte[0];
-}
     void createAccount() {
 
         String userName = edtuser.getText().toString();
@@ -137,7 +107,7 @@ static byte[] getByteUri(Context context,Uri uri){
                     if (snapshot.hasChild(phone)) {
                         Toast.makeText(screenSignup.this, "Phone is already", Toast.LENGTH_SHORT).show();
                     } else {
-                        databaseReference.child("user").child(phone).child("image").setValue(base64);
+                        databaseReference.child("user").child(phone).child("image").setValue(img);
 
                         databaseReference.child("user").child(phone).child("fullname").setValue(userName);
                         databaseReference.child("user").child(phone).child("phone").setValue(phone);
