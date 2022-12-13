@@ -33,7 +33,7 @@ public class guestInfor extends Fragment {
     EditText edtphone, edtpass;
     ImageView showqrcode;
     TextView btnfind,inforguest;
-    String one="",text="canbo";
+    String one="",text="Tính năng đang trong giai đoạn phát triển";
 
     public static Fragment newInstance() {
         return new guestInfor();
