@@ -1,5 +1,7 @@
 package com.example.managerworkofstatecadres.qr;
 
+import android.graphics.Bitmap;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,13 +20,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
 import com.hq.manager_work.R;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 
 public class guestInfor extends Fragment {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mosc-47a15-default-rtdb.firebaseio.com/");
     EditText edtphone, edtpass;
-
+    ImageView showqrcode;
     TextView btnfind,inforguest;
     String one="";
 
@@ -35,6 +43,7 @@ public class guestInfor extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -46,12 +55,32 @@ public class guestInfor extends Fragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        String text = "Tính năng đang phát triển ";
+        MultiFormatWriter writer = new MultiFormatWriter();
+        try
+        {
+            BitMatrix matrix = writer.encode(text, BarcodeFormat.QR_CODE,600,600);
+            BarcodeEncoder encoder = new BarcodeEncoder();
+            Bitmap bitmap = encoder.createBitmap(matrix);
+            showqrcode.setImageBitmap(bitmap);
+
+        } catch (WriterException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
     public void initView(View view){
         edtphone = view.findViewById(R.id.id_inputphone);
         edtpass = view.findViewById(R.id.id_inputpass);
         btnfind=view.findViewById(R.id.id_find);
         inforguest = view.findViewById(R.id.infor_guest);
         btnfind.setOnClickListener(v-> one1());
+        showqrcode = view.findViewById(R.id.showqr);
+
     }
     public void  one1(){
 
@@ -69,11 +98,7 @@ public class guestInfor extends Fragment {
                             String txt = read();
                             inforguest.setText(txt);
                             Toast.makeText(getActivity(), txt, Toast.LENGTH_SHORT).show();
-                                Bundle bundle = new Bundle();
-                                bundle.putString("dataguest", txt);
 
-                                dialogInfor fragobj = new dialogInfor();
-                                fragobj.setArguments(bundle);
 
                         }else {
                             Toast.makeText(getActivity(), "Input pass fail", Toast.LENGTH_SHORT).show();

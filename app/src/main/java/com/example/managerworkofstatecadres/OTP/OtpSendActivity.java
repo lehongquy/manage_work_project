@@ -3,6 +3,7 @@ package com.example.managerworkofstatecadres.OTP;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,7 +46,7 @@ public class OtpSendActivity extends AppCompatActivity {
                     edtPhone.setError("please enter valid phone");
                 } else {
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                            "+92" + phoneNumber, 60, TimeUnit.SECONDS, OtpSendActivity.this,
+                            "+84" + phoneNumber, 60, TimeUnit.SECONDS, OtpSendActivity.this,
                             new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                                 @Override
                                 public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {

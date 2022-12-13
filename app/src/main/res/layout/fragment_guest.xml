@@ -112,5 +112,11 @@
         </LinearLayout>
 
     </RelativeLayout>
-
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_baseline_qr_code_2_24"
+        android:background="@color/white"
+        android:id="@+id/showqr"
+        android:layout_gravity="center_horizontal"/>
 </FrameLayout>
