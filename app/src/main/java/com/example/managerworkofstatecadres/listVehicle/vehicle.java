@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -27,6 +28,7 @@ import com.example.managerworkofstatecadres.listVehicle.vehiclelist.addvehicle;
 import com.example.managerworkofstatecadres.listWork.work.work;
 import com.example.managerworkofstatecadres.profile.profile;
 import com.example.managerworkofstatecadres.qr.inforMain;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -43,10 +45,12 @@ import java.util.Collections;
 public class vehicle extends AppCompatActivity {
     RecyclerView recyclerView;
     vehicleRecycleAdapter adapter;
-    ImageView imageView, listwork, qr1, notification1, profile1;
     ArrayList<licenad> mlist = new ArrayList<licenad>();
-    ;
+    ImageView imageView;
+    FloatingActionButton btnFloat;
+    BottomNavigationView bottomNavigationView;
     FloatingActionButton btnadd;
+
 
     boolean flag = false;
 
@@ -57,10 +61,7 @@ public class vehicle extends AppCompatActivity {
         setContentView(R.layout.activity_vehicle);
         recyclerView = findViewById(R.id.recycviewvh);
         imageView = findViewById(R.id.sort1);
-        listwork = findViewById(R.id.listwork);
-        qr1 = findViewById(R.id.qr);
-        notification1 = findViewById(R.id.listnotification);
-        profile1 = findViewById(R.id.listprofile);
+
         btnadd = findViewById(R.id.btnaddvehicle);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -93,27 +94,42 @@ public class vehicle extends AppCompatActivity {
         String phone = intent.getStringExtra("phone");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference("user").child(phone).child("vehicle" + phone);
-        listwork.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, work.class);
-            intent1.putExtra("phone", phone);
-            startActivity(intent1);
-        });
-        qr1.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, inforMain.class);
-            intent1.putExtra("phone", phone);
-            startActivity(intent1);
-        });
-        notification1.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, notification.class);
-            intent1.putExtra("phone", phone);
-            startActivity(intent1);
-        });
-        profile1.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, profile.class);
-            intent1.putExtra("phone", phone);
-            startActivity(intent1);
+        bottomNavigationView=findViewById(R.id.bnView);
+        btnFloat= findViewById(R.id.floatbtn);
+        bottomNavigationView.setSelectedItemId(R.id.bnvehicel);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.bnnotification:
+                        Intent intent1 = new Intent(vehicle.this, notification.class);
+                        intent1.putExtra("phone",phone);
+                        startActivity(intent1);
+                        return true;
+                    case R.id.bnwork:
+                        Intent intent3 = new Intent(vehicle.this, work.class);
+                        intent3.putExtra("phone",phone);
+                        startActivity(intent3);
+                        return true;
+                    case R.id.bnprofile:
+                        Intent intent2 = new Intent(vehicle.this, profile.class);
+                        intent2.putExtra("phone",phone);
+                        startActivity(intent2);
+                        return true;
+                    case R.id.bnvehicel:
+
+                        return true;
+
+                }
+                return false;
+            }
         });
 
+        btnFloat.setOnClickListener(view -> {
+            Intent intent1 = new Intent(this, inforMain.class);
+            intent1.putExtra("phone",phone);
+            startActivity(intent1);
+        });
         btnadd.setOnClickListener(view -> {
             Intent intent1 = new Intent(this, addvehicle.class);
             intent1.putExtra("phone", phone);

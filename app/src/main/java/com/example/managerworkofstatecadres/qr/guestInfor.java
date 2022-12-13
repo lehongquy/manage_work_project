@@ -33,7 +33,7 @@ public class guestInfor extends Fragment {
     EditText edtphone, edtpass;
     ImageView showqrcode;
     TextView btnfind,inforguest;
-    String one="";
+    String one="",text="canbo";
 
     public static Fragment newInstance() {
         return new guestInfor();
@@ -58,7 +58,7 @@ public class guestInfor extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        String text = "Tính năng đang phát triển ";
+
         MultiFormatWriter writer = new MultiFormatWriter();
         try
         {
@@ -71,6 +71,9 @@ public class guestInfor extends Fragment {
         {
             e.printStackTrace();
         }
+    }
+    public  void  canbo(String text1){
+        text = text1;
     }
 
     public void initView(View view){

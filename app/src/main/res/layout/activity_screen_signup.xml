@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/signup"
+    android:background="@drawable/backgroud2"
     android:orientation="vertical"
     tools:context="com.example.managerworkofstatecadres.login.screenSignup">
     <TextView
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="5dp"
+
 
         android:background="@drawable/boder"
         android:gravity="center"
@@ -22,13 +22,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp">
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="90dp">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:src="@drawable/boder2" />
+            android:src="@drawable/backgroundlogo" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,139 +71,87 @@
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
-            <LinearLayout
+
+
+
+
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1.2"
-                android:background="#03A9F4"
-                android:orientation="horizontal"
-                android:weightSum="10">
+                android:layout_height="50dp"
+                android:id="@+id/id_inputname"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="8dp"
+                android:hint="Input Fullname"
+                android:drawableLeft="@drawable/ic_baseline_person_pin_24"
+                android:drawablePadding="8dp"
+                android:textColorHint="@color/purple_700"
+                android:textColor="@color/purple_700"/>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="8.5"
-                    android:src="@drawable/ic_baseline_co_present_24">
-
-                </ImageView>
-
-                <EditText
-                    android:id="@+id/id_inputname"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:hint="Input Name" />
-            </LinearLayout>
-
-            <LinearLayout
+            <EditText
+                android:id="@+id/id_inputgmail"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1.2"
-                android:background="#03A9F4"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="8.5"
-                    android:src="@drawable/ic_baseline_forward_to_inbox_24">
-
-                </ImageView>
-
-                <EditText
-                    android:id="@+id/id_inputgmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:hint="Input Gmail" />
-            </LinearLayout>
-
-            <LinearLayout
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/ic_baseline_forward_to_inbox_24"
+                android:drawablePadding="8dp"
+                android:hint="Input Gmail"
+                android:textColorHint="@color/purple_700"
+                android:textColor="@color/purple_700"
+                android:inputType="textPassword"
+                android:padding="8dp" />
+            <EditText
+                android:id="@+id/id_inputphone"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1.2"
-                android:background="#03A9F4"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="8.5"
-                    android:src="@drawable/ic_baseline_vpn_key_24">
-
-                </ImageView>
-
-                <EditText
-                    android:id="@+id/id_inputpass"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:hint="Input password" />
-            </LinearLayout>
-
-
-            <LinearLayout
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/ic_baseline_phone_24"
+                android:textColorHint="@color/purple_700"
+                android:textColor="@color/purple_700"
+                android:drawablePadding="8dp"
+                android:hint="Input Phone"
+                android:inputType="textPassword"
+                android:padding="8dp"
+ />
+            <EditText
+                android:id="@+id/id_inputpass"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1.2"
-                android:background="#03A9F4"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="8.5"
-                    android:src="@drawable/ic_baseline_vpn_key_24">
-
-                </ImageView>
-
-                <EditText
-                    android:id="@+id/id_inputrepass"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:hint="Input Repassword " />
-            </LinearLayout>
-
-            <LinearLayout
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/lavender_border"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawablePadding="8dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColorHint="@color/purple_700"
+                android:textColor="@color/purple_700"
+   />
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1.2"
-                android:background="#03A9F4"
-                android:orientation="horizontal"
-                android:weightSum="10">
+                android:layout_height="50dp"
+                android:id="@+id/id_inputrepass"
+                android:background="@drawable/lavender_border"
+                android:layout_marginTop="20dp"
+                android:padding="8dp"
+                android:hint="RePassword"
+                android:inputType="textPassword"
+                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawablePadding="8dp"
+                android:textColorHint="@color/purple_700"
+                android:textColor="@color/purple_700"/>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="8.5"
-                    android:src="@drawable/ic_baseline_phone_24">
-
-                </ImageView>
-
-                <EditText
-                    android:id="@+id/id_inputphone"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.5"
-                    android:hint="Input Number Phone" />
-            </LinearLayout>
 
             <Button
                 android:id="@+id/id_signupaccount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#209618"
-                android:shadowColor="@color/black"
-                android:text="Signup" />
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:text="Signup account"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -243,3 +192,7 @@
     </RelativeLayout>
 
 </LinearLayout>
+
+
+
+

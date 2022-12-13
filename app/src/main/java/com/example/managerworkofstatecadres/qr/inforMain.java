@@ -3,6 +3,7 @@ package com.example.managerworkofstatecadres.qr;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import com.example.managerworkofstatecadres.listWork.work.work;
 import com.example.managerworkofstatecadres.profile.pro;
 import com.example.managerworkofstatecadres.profile.profile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,7 +30,7 @@ import com.hq.manager_work.R;
 public class inforMain extends AppCompatActivity {
     private ViewPager2 viewPager2;
     private BottomNavigationView view;
-    ImageView listvehicle,listwork,notification1,profile1;
+    BottomNavigationView bottomNavigationView;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,35 +38,45 @@ public class inforMain extends AppCompatActivity {
         setContentView(R.layout.activity_infor);
         viewPager2 = findViewById(R.id.viewpage2);
         view = findViewById(R.id.bottomNv);
-        listvehicle = findViewById(R.id.listvehicle4);
-        listwork = findViewById(R.id.listwork4);
-        notification1 = findViewById(R.id.listnotification4);
-        profile1 = findViewById(R.id.listprofile4);
+
         Intent intent = getIntent();
         String phone = intent.getStringExtra("phone");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference("user").child(phone);
         myViewPage page = new myViewPage(this);
-        listvehicle.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, vehicle.class);
-            intent1.putExtra("phone",phone);
-            startActivity(intent1);
+        bottomNavigationView=findViewById(R.id.bnView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.bnnotification:
+                        Intent intent = new Intent(inforMain.this, notification.class);
+                        intent.putExtra("phone",phone);
+                        startActivity(intent);
+                        return true;
+                    case R.id.bnwork:
+                        Intent intent1 = new Intent(inforMain.this, work.class);
+                        intent1.putExtra("phone",phone);
+                        startActivity(intent1);
+                        return true;
+                    case R.id.bnprofile:
+                        Intent intent2 = new Intent(inforMain.this, profile.class);
+                        intent2.putExtra("phone",phone);
+                        startActivity(intent2);
+                        return true;
+                    case R.id.bnvehicel:
+                        Intent intent3 = new Intent(inforMain.this, vehicle.class);
+                        intent3.putExtra("phone",phone);
+                        startActivity(intent3);
+                        return true;
+
+                }
+                return false;
+            }
         });
-        listwork.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, work.class);
-            intent1.putExtra("phone",phone);
-            startActivity(intent1);
-        });
-        notification1.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, notification.class);
-            intent1.putExtra("phone",phone);
-            startActivity(intent1);
-        });
-        profile1.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, profile.class);
-            intent1.putExtra("phone",phone);
-            startActivity(intent1);
-        });
+
+
+
         Read();
 
         viewPager2.setAdapter(page);
@@ -113,7 +125,6 @@ String infor1="";
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 pro infor = snapshot.getValue(pro.class);
                 infor1=infor.gettoString();
-
 
 
 //                byte[] decodeString = Base64.getDecoder().decode(infor.getImage());

@@ -72,7 +72,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="6"
+            android:layout_weight="6.5"
             android:orientation="vertical"
             android:weightSum="5"
             >
@@ -127,50 +127,32 @@
                 android:text="Signout"
                 />
     </LinearLayout>
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:weightSum="5.5"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
-        <ImageView
-            android:layout_weight="1"
+        android:layout_weight="0.5">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:id="@+id/Appbar"
+            tools:ignore="BottomAppBar" >
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/bnView"
+                app:menu="@menu/bngenered"
+                android:layout_marginEnd="16dp"
+                android:background="@color/zxing_transparent"/>
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_baseline_list_alt_24"
-            android:id="@+id/listwork3"/>
-        <ImageView
-            android:layout_weight="1"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_baseline_airport_shuttle_24"
-            android:id="@+id/listvehicle3"/>
-        <ImageView
-            android:layout_weight="1.5"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/floatbtn"
             android:src="@drawable/ic_baseline_qr_code_scanner_24"
-            android:id="@+id/qr3"/>
-        <ImageView
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-
-            android:layout_height="match_parent"
-
-            android:src="@drawable/ic_baseline_add_alert_24"
-            android:id="@+id/listnotification3"/>
-        <ImageView
-            android:layout_weight="1"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_baseline_person_24"
-          />
-    </LinearLayout>
+            app:layout_anchor="@id/Appbar"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </LinearLayout>

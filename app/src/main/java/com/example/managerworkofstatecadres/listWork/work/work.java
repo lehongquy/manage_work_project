@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -27,6 +28,7 @@ import com.example.managerworkofstatecadres.listVehicle.vehicle;
 import com.example.managerworkofstatecadres.listWork.work.vehiclelist.addwork;
 import com.example.managerworkofstatecadres.profile.profile;
 import com.example.managerworkofstatecadres.qr.inforMain;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -43,10 +45,11 @@ import java.util.Collections;
 public class work extends AppCompatActivity {
     RecyclerView recyclerView;
     workRecycleAdapter adapter;
-    ImageView imageView,listvehicle,qr1,notification1,profile1;
+    ImageView imageView;
     ArrayList<workOject> mlist;
     FloatingActionButton btnadd;
-
+    FloatingActionButton btnFloat;
+    BottomNavigationView bottomNavigationView;
     boolean flag = false;
 
     @SuppressLint("MissingInflatedId")
@@ -56,10 +59,7 @@ public class work extends AppCompatActivity {
         setContentView(R.layout.activity_work);
         recyclerView = findViewById(R.id.recycviewwk);
         imageView = findViewById(R.id.sort2);
-        listvehicle = findViewById(R.id.listvehicle2);
-        qr1 = findViewById(R.id.qr2);
-        notification1 = findViewById(R.id.listnotification2);
-        profile1 = findViewById(R.id.listprofile2);
+
         btnadd = findViewById(R.id.btnaddwork);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -125,23 +125,39 @@ public class work extends AppCompatActivity {
             intent1.putExtra("phone",phone);
             startActivity(intent1);
         });
-        listvehicle.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, vehicle.class);
-            intent1.putExtra("phone",phone);
-            startActivity(intent1);
+        bottomNavigationView=findViewById(R.id.bnView);
+        btnFloat= findViewById(R.id.floatbtn);
+        bottomNavigationView.setSelectedItemId(R.id.bnwork);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.bnnotification:
+                        Intent intent1 = new Intent(work.this, notification.class);
+                        intent1.putExtra("phone",phone);
+                        startActivity(intent1);
+                        return true;
+                    case R.id.bnwork:
+
+                        return true;
+                    case R.id.bnprofile:
+                        Intent intent2 = new Intent(work.this, profile.class);
+                        intent2.putExtra("phone",phone);
+                        startActivity(intent2);
+                        return true;
+                    case R.id.bnvehicel:
+                        Intent intent3 = new Intent(work.this, vehicle.class);
+                        intent3.putExtra("phone",phone);
+                        startActivity(intent3);
+                        return true;
+
+                }
+                return false;
+            }
         });
-        qr1.setOnClickListener(view -> {
+
+        btnFloat.setOnClickListener(view -> {
             Intent intent1 = new Intent(this, inforMain.class);
-            intent1.putExtra("phone",phone);
-            startActivity(intent1);
-        });
-        notification1.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, notification.class);
-            intent1.putExtra("phone",phone);
-            startActivity(intent1);
-        });
-        profile1.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, profile.class);
             intent1.putExtra("phone",phone);
             startActivity(intent1);
         });

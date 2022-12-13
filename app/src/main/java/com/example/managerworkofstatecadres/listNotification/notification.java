@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.SearchView;
@@ -20,6 +21,8 @@ import com.example.managerworkofstatecadres.listWork.work.work;
 import com.example.managerworkofstatecadres.profile.profile;
 import com.example.managerworkofstatecadres.qr.inforMain;
 import com.example.managerworkofstatecadres.qr.myViewPage;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,14 +45,17 @@ public class notification extends AppCompatActivity {
     ImageView imageView;
     ArrayList<ntObject> mlist;
     SearchView searchView;
-    ImageView listvehicle,listwork,qr,profile1;
+    FloatingActionButton btnFloat;
+    BottomNavigationView bottomNavigationView;
     boolean flag = false;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
         recyclerView = findViewById(R.id.recyclerViewnt);
+
         imageView = findViewById(R.id.sort);
         searchView = findViewById(R.id.seachView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -60,31 +66,44 @@ public class notification extends AppCompatActivity {
         myAdapter = new MyAdapter(mlist);
 
         recyclerView.setAdapter(myAdapter);
-        listvehicle = findViewById(R.id.listvehicle);
-        listwork = findViewById(R.id.listwork);
-        profile1 = findViewById(R.id.listprofile);
-        qr = findViewById(R.id.qr);
+
         Intent intent = getIntent();
         String phone = intent.getStringExtra("phone");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference("user").child(phone);
         myViewPage page = new myViewPage(this);
-        listvehicle.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, vehicle.class);
-            intent1.putExtra("phone",phone);
-            startActivity(intent1);
+        bottomNavigationView=findViewById(R.id.bnView);
+        btnFloat= findViewById(R.id.floatbtn);
+        bottomNavigationView.setSelectedItemId(R.id.bnnotification);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.bnnotification:
+
+                        return true;
+                    case R.id.bnwork:
+                        Intent intent1 = new Intent(notification.this, work.class);
+                        intent1.putExtra("phone",phone);
+                        startActivity(intent1);
+                        return true;
+                    case R.id.bnprofile:
+                        Intent intent2 = new Intent(notification.this, profile.class);
+                        intent2.putExtra("phone",phone);
+                        startActivity(intent2);
+                        return true;
+                    case R.id.bnvehicel:
+                        Intent intent3 = new Intent(notification.this, vehicle.class);
+                        intent3.putExtra("phone",phone);
+                        startActivity(intent3);
+                        return true;
+
+                }
+                return false;
+            }
         });
-        listwork.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, work.class);
-            intent1.putExtra("phone",phone);
-            startActivity(intent1);
-        });
-        profile1.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, profile.class);
-            intent1.putExtra("phone",phone);
-            startActivity(intent1);
-        });
-        qr.setOnClickListener(view -> {
+
+        btnFloat.setOnClickListener(view -> {
             Intent intent1 = new Intent(this, inforMain.class);
             intent1.putExtra("phone",phone);
             startActivity(intent1);

@@ -14,6 +14,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -25,10 +26,11 @@ import com.example.managerworkofstatecadres.listNotification.notification;
 import com.example.managerworkofstatecadres.listVehicle.vehicle;
 import com.example.managerworkofstatecadres.listWork.work.work;
 import com.example.managerworkofstatecadres.login.screenLogin;
-import com.example.managerworkofstatecadres.qr.guestInfor;
 import com.example.managerworkofstatecadres.qr.inforGuest;
 import com.example.managerworkofstatecadres.qr.inforMain;
 import com.example.managerworkofstatecadres.qr.myViewPage;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,10 +47,11 @@ import java.util.Base64;
 
 
 public class profile extends AppCompatActivity {
-    ImageView listvehicle, listwork, notification1, qr, imagepro;
+    ImageView imagepro;
     TextView reward, change, support, setting, signout, phonepro, namepro, gmailpro, position;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mosc-47a15-default-rtdb.firebaseio.com");
-
+    FloatingActionButton btnFloat;
+    BottomNavigationView bottomNavigationView;
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
@@ -62,10 +65,8 @@ public class profile extends AppCompatActivity {
         gmailpro = findViewById(R.id.gmailpro);
         position = findViewById(R.id.positionpro);
         namepro = findViewById(R.id.namepro);
-        listvehicle = findViewById(R.id.listvehicle3);
-        listwork = findViewById(R.id.listwork3);
         signout = findViewById(R.id.signout);
-        notification1 = findViewById(R.id.listnotification3);
+
         reward = findViewById(R.id.reward);
         change = findViewById(R.id.change);
         support = findViewById(R.id.support);
@@ -117,7 +118,7 @@ public class profile extends AppCompatActivity {
             b.show();
 
         });
-        qr = findViewById(R.id.qr3);
+
 
         myViewPage page = new myViewPage(this);
 
@@ -146,27 +147,42 @@ public class profile extends AppCompatActivity {
         String phone = intent.getStringExtra("phone");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("user");
-        listvehicle.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, vehicle.class);
-            intent1.putExtra("phone", phone);
-            startActivity(intent1);
-        });
-        listwork.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, work.class);
-            intent1.putExtra("phone", phone);
-            startActivity(intent1);
-        });
-        notification1.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, notification.class);
-            intent1.putExtra("phone", phone);
-            startActivity(intent1);
-        });
-        qr.setOnClickListener(view -> {
-            Intent intent1 = new Intent(this, inforMain.class);
-            intent1.putExtra("phone", phone);
-            startActivity(intent1);
+        bottomNavigationView=findViewById(R.id.bnView);
+        btnFloat= findViewById(R.id.floatbtn);
+        bottomNavigationView.setSelectedItemId(R.id.bnprofile);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.bnnotification:
+                        Intent intent2 = new Intent(profile.this, notification.class);
+                        intent2.putExtra("phone",phone);
+                        startActivity(intent2);
+                        return true;
+                    case R.id.bnwork:
+                        Intent intent1 = new Intent(profile.this, work.class);
+                        intent1.putExtra("phone",phone);
+                        startActivity(intent1);
+                        return true;
+                    case R.id.bnprofile:
+
+                        return true;
+                    case R.id.bnvehicel:
+                        Intent intent3 = new Intent(profile.this, vehicle.class);
+                        intent3.putExtra("phone",phone);
+                        startActivity(intent3);
+                        return true;
+
+                }
+                return false;
+            }
         });
 
+        btnFloat.setOnClickListener(view -> {
+            Intent intent1 = new Intent(this, inforMain.class);
+            intent1.putExtra("phone",phone);
+            startActivity(intent1);
+        });
 
     }
 
@@ -193,19 +209,15 @@ public class profile extends AppCompatActivity {
             @SuppressLint("NewApi")
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 pro infor = snapshot.getValue(pro.class);
-                phonepro.setText("Phone:"+infor.getPhone());
-                namepro.setText("Name:"+infor.getFullname());
-                gmailpro.setText("Gmail:"+infor.getGmail());
-                position.setText("Position:"+infor.getPosition());
-                Bundle bundle = new Bundle();
-                bundle.putString("canbo",infor.toString());
-// set Fragmentclass Arguments
-                guestInfor fragobj = new guestInfor();
-                fragobj.setArguments(bundle);
+                phonepro.setText(infor.getPhone());
+                namepro.setText(infor.getFullname());
+                gmailpro.setText(infor.getGmail());
+                position.setText(infor.getPosition());
+
 //                byte[] decodeString = Base64.getDecoder().decode(infor.getImage());
 //                Bitmap decodeByte = BitmapFactory.decodeByteArray(decodeString, 0, decodeString.length);
 //                im.setImageBitmap(decodeByte);
-                bytesToImage(imagepro, String.valueOf(infor.getImage()));
+                bytesToImage(imagepro, infor.getImage());
             }
 
             @Override
