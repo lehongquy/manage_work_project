@@ -17,7 +17,8 @@ public class myViewPage extends FragmentStateAdapter {
             case 1:
                 return guestInfor.newInstance();
 
-            default: return qrCode.newInstance();
+            default:
+                return qrCode.newInstance();
         }
     }
 

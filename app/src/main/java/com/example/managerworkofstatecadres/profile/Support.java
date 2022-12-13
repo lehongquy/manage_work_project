@@ -40,7 +40,7 @@ public class Support extends Dialog {
 
         this.buttonOK = findViewById(R.id.ok);
 
-        this.buttonOK .setOnClickListener(new View.OnClickListener() {
+        this.buttonOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 buttonOKClick();
@@ -50,7 +50,7 @@ public class Support extends Dialog {
     }
 
     // User click "OK" button.
-    private void buttonOKClick()  {
+    private void buttonOKClick() {
 
         this.dismiss(); // Close Dialog
 

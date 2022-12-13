@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/backgroud2"
     android:orientation="vertical"
     tools:context="com.example.managerworkofstatecadres.login.screenSignup">
+
     <TextView
 
         android:layout_width="match_parent"
@@ -19,6 +20,7 @@
         android:text="Create Account"
 
         android:textSize="30dp" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,52 +43,50 @@
             android:weightSum="7">
 
 
-<RelativeLayout
-    android:layout_width="100dp"
+            <RelativeLayout
+                android:layout_width="100dp"
 
-    android:layout_height="100dp">
+                android:layout_height="100dp">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardCornerRadius="90dp">
-        <ImageView
-            android:id="@+id/id_showimg"
-            android:layout_width="match_parent"
-        android:layout_height="match_parent"
-            android:src="@drawable/imgtest"
-            />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="90dp">
 
-        <LinearLayout
-            android:id="@+id/id_selectimg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
+                    <ImageView
+                        android:id="@+id/id_showimg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/imgtest" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_add_a_photo_24" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:id="@+id/id_selectimg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
 
-</RelativeLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_baseline_add_a_photo_24" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-
+            </RelativeLayout>
 
 
             <EditText
+                android:id="@+id/id_inputname"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/id_inputname"
-                android:background="@drawable/lavender_border"
                 android:layout_marginTop="20dp"
-                android:padding="8dp"
-                android:hint="Input Fullname"
+                android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/ic_baseline_person_pin_24"
                 android:drawablePadding="8dp"
-                android:textColorHint="@color/purple_700"
-                android:textColor="@color/purple_700"/>
+                android:hint="Input Fullname"
+                android:padding="8dp"
+                android:textColor="@color/purple_700"
+                android:textColorHint="@color/purple_700" />
 
             <EditText
                 android:id="@+id/id_inputgmail"
@@ -97,10 +97,11 @@
                 android:drawableLeft="@drawable/ic_baseline_forward_to_inbox_24"
                 android:drawablePadding="8dp"
                 android:hint="Input Gmail"
-                android:textColorHint="@color/purple_700"
-                android:textColor="@color/purple_700"
                 android:inputType="textPassword"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textColor="@color/purple_700"
+                android:textColorHint="@color/purple_700" />
+
             <EditText
                 android:id="@+id/id_inputphone"
                 android:layout_width="match_parent"
@@ -108,13 +109,13 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/ic_baseline_phone_24"
-                android:textColorHint="@color/purple_700"
-                android:textColor="@color/purple_700"
                 android:drawablePadding="8dp"
                 android:hint="Input Phone"
                 android:inputType="textPassword"
                 android:padding="8dp"
- />
+                android:textColor="@color/purple_700"
+                android:textColorHint="@color/purple_700" />
+
             <EditText
                 android:id="@+id/id_inputpass"
                 android:layout_width="match_parent"
@@ -126,22 +127,22 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="8dp"
-                android:textColorHint="@color/purple_700"
                 android:textColor="@color/purple_700"
-   />
+                android:textColorHint="@color/purple_700" />
+
             <EditText
+                android:id="@+id/id_inputrepass"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/id_inputrepass"
-                android:background="@drawable/lavender_border"
                 android:layout_marginTop="20dp"
-                android:padding="8dp"
-                android:hint="RePassword"
-                android:inputType="textPassword"
+                android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:drawablePadding="8dp"
-                android:textColorHint="@color/purple_700"
-                android:textColor="@color/purple_700"/>
+                android:hint="RePassword"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="@color/purple_700"
+                android:textColorHint="@color/purple_700" />
 
 
             <Button

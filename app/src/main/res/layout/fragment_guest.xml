@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/fragguest"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/signup"
     tools:context="com.example.managerworkofstatecadres.qr.">
@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginVertical="110dp">
+        android:layout_marginVertical="110dp"
+        android:layout_marginTop="10dp">
 
         <ImageView
-            android:background="@drawable/boder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/boder"
             android:src="@drawable/creeateaccount" />
 
         <LinearLayout
@@ -85,11 +85,12 @@
             </LinearLayout>
 
             <Button
-                android:textColor="@color/white"
                 android:id="@+id/id_find"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Find" />
+                android:text="Find"
+                android:textColor="@color/white" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,13 +100,14 @@
 
 
                 >
+
                 <TextView
+                    android:id="@+id/infor_guest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="5dp"
                     android:background="@color/teal_200"
                     android:gravity="center"
-                    android:id="@+id/infor_guest"
                     android:paddingHorizontal="50dp"
                     android:text="Find Account"
                     android:textSize="15dp" />
@@ -113,11 +115,12 @@
         </LinearLayout>
 
     </RelativeLayout>
+
     <ImageView
+        android:id="@+id/showqr"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/ic_baseline_qr_code_2_24"
+        android:layout_gravity="center_horizontal"
         android:background="@color/white"
-        android:id="@+id/showqr"
-        android:layout_gravity="center_horizontal"/>
+        android:src="@drawable/ic_baseline_qr_code_2_24" />
 </FrameLayout>

@@ -32,8 +32,8 @@ public class guestInfor extends Fragment {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mosc-47a15-default-rtdb.firebaseio.com/");
     EditText edtphone, edtpass;
     ImageView showqrcode;
-    TextView btnfind,inforguest;
-    String one="",text="Tính năng đang trong giai đoạn phát triển";
+    TextView btnfind, inforguest;
+    String one = "", text = "Tính năng đang trong giai đoạn phát triển";
 
     public static Fragment newInstance() {
         return new guestInfor();
@@ -60,53 +60,53 @@ public class guestInfor extends Fragment {
         super.onStart();
 
         MultiFormatWriter writer = new MultiFormatWriter();
-        try
-        {
-            BitMatrix matrix = writer.encode(text, BarcodeFormat.QR_CODE,600,600);
+        try {
+            BitMatrix matrix = writer.encode(text, BarcodeFormat.QR_CODE, 600, 600);
             BarcodeEncoder encoder = new BarcodeEncoder();
             Bitmap bitmap = encoder.createBitmap(matrix);
             showqrcode.setImageBitmap(bitmap);
 
-        } catch (WriterException e)
-        {
+        } catch (WriterException e) {
             e.printStackTrace();
         }
     }
-    public  void  canbo(String text1){
+
+    public void canbo(String text1) {
         text = text1;
     }
 
-    public void initView(View view){
+    public void initView(View view) {
         edtphone = view.findViewById(R.id.id_inputphone);
         edtpass = view.findViewById(R.id.id_inputpass);
-        btnfind=view.findViewById(R.id.id_find);
+        btnfind = view.findViewById(R.id.id_find);
         inforguest = view.findViewById(R.id.infor_guest);
-        btnfind.setOnClickListener(v-> one1());
+        btnfind.setOnClickListener(v -> one1());
         showqrcode = view.findViewById(R.id.showqr);
 
     }
-    public void  one1(){
 
-         String phone =edtphone.getText().toString();
-         String pass =edtpass.getText().toString();
-        if (phone.isEmpty()||pass.isEmpty()){
+    public void one1() {
+
+        String phone = edtphone.getText().toString();
+        String pass = edtpass.getText().toString();
+        if (phone.isEmpty() || pass.isEmpty()) {
             Toast.makeText(getActivity(), "Please,Input pass or phone", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             databaseReference.child("user").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.hasChild(phone)){
-                        final  String getPass = snapshot.child(phone).child("pass").getValue(String.class);
-                        if (getPass.equals(pass)){
+                    if (snapshot.hasChild(phone)) {
+                        final String getPass = snapshot.child(phone).child("pass").getValue(String.class);
+                        if (getPass.equals(pass)) {
                             String txt = read();
                             inforguest.setText(txt);
                             Toast.makeText(getActivity(), txt, Toast.LENGTH_SHORT).show();
 
 
-                        }else {
+                        } else {
                             Toast.makeText(getActivity(), "Input pass fail", Toast.LENGTH_SHORT).show();
                         }
-                    }else {
+                    } else {
                         Toast.makeText(getActivity(), "Don't find account", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -120,22 +120,22 @@ public class guestInfor extends Fragment {
 
     }
 
-    private  String  read(){
+    private String read() {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-         DatabaseReference reference = database.getReference("user").child(edtphone.getText().toString());
-         reference.addValueEventListener(new ValueEventListener() {
-             @Override
-             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                 inforGuest infor= snapshot.getValue(inforGuest.class);
-                        one= infor.toString();
-             }
+        DatabaseReference reference = database.getReference("user").child(edtphone.getText().toString());
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                inforGuest infor = snapshot.getValue(inforGuest.class);
+                one = infor.toString();
+            }
 
-             @Override
-             public void onCancelled(@NonNull DatabaseError error) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-             }
-         });
-         return one;
+            }
+        });
+        return one;
     }
 }

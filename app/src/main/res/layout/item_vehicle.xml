@@ -3,95 +3,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="8dp"
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
     app:cardBackgroundColor="#FFFFE8">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:weightSum="10"
-    android:id="@+id/one"
-    android:orientation="horizontal">
-        <TextView
-            android:id="@+id/text_view_title"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:id="@+id/one"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:ellipsize="end"
-            android:layout_weight="9"
-            android:maxLines="1"
-            android:text="Trip"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:id="@+id/text_view_critical"
-    android:gravity="center"
-    android:text="1"/>
-</LinearLayout>
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/text_view_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_weight="9"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Trip"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/text_view_critical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/text_view_namedriver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_below="@id/one"
+            android:layout_alignParentStart="true"
             android:text="Name Driver" />
+
         <TextView
             android:id="@+id/text_view_departure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_below="@id/text_view_namedriver"
+            android:layout_alignParentStart="true"
             android:text="Departure" />
 
         <TextView
             android:id="@+id/text_view_license"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_below="@id/text_view_departure"
+            android:layout_alignParentStart="true"
             android:text="License" />
+
         <TextView
             android:id="@+id/text_view_people"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_below="@id/text_view_license"
+            android:layout_alignParentStart="true"
             android:text="People" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_margin="4sp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/text_view_people"
-            android:padding="4sp"
-            android:layout_height="wrap_content">
+            android:layout_margin="4sp"
+            android:orientation="horizontal"
+            android:padding="4sp">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonDelete"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
+                android:layout_weight="1"
                 android:background="@android:color/holo_red_light"
                 android:text="DELETE"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/buttonUpdate"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
+                android:layout_weight="1"
                 android:background="@android:color/holo_blue_dark"
                 android:text="UPDATE"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
     </RelativeLayout>

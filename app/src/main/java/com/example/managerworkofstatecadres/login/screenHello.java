@@ -17,8 +17,9 @@ public class screenHello extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_hello);ImageView img = (ImageView)findViewById(R.id.imgHello);
-        Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoomhello);
+        setContentView(R.layout.activity_screen_hello);
+        ImageView img = (ImageView) findViewById(R.id.imgHello);
+        Animation aniSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoomhello);
         img.startAnimation(aniSlide);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -27,6 +28,6 @@ public class screenHello extends AppCompatActivity {
                 startActivity(new Intent(screenHello.this, screenLogin.class));
                 finish();
             }
-        },3000);
+        }, 3000);
     }
 }

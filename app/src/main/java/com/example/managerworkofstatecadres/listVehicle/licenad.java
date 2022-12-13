@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class licenad {
-    String namedriver,license, departure,trip,people,critical;
+    String namedriver, license, departure, trip, people, critical;
 
     public licenad() {
     }
@@ -60,14 +60,14 @@ public class licenad {
 
 
     public Map<String, Object> toMap() {
-        HashMap<String,Object> map = new HashMap<>();
-        map.put("namedriver",namedriver);
-        map.put("license",license);
-        map.put("trip",trip);
-        map.put("departure",departure);
-        map.put("critical",critical);
-        map.put("people",people);
-                return map;
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("namedriver", namedriver);
+        map.put("license", license);
+        map.put("trip", trip);
+        map.put("departure", departure);
+        map.put("critical", critical);
+        map.put("people", people);
+        return map;
     }
 }
 

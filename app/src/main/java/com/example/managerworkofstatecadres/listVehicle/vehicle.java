@@ -94,26 +94,26 @@ public class vehicle extends AppCompatActivity {
         String phone = intent.getStringExtra("phone");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference("user").child(phone).child("vehicle" + phone);
-        bottomNavigationView=findViewById(R.id.bnView);
-        btnFloat= findViewById(R.id.floatbtn);
+        bottomNavigationView = findViewById(R.id.bnView);
+        btnFloat = findViewById(R.id.floatbtn);
         bottomNavigationView.setSelectedItemId(R.id.bnvehicel);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.bnnotification:
                         Intent intent1 = new Intent(vehicle.this, notification.class);
-                        intent1.putExtra("phone",phone);
+                        intent1.putExtra("phone", phone);
                         startActivity(intent1);
                         return true;
                     case R.id.bnwork:
                         Intent intent3 = new Intent(vehicle.this, work.class);
-                        intent3.putExtra("phone",phone);
+                        intent3.putExtra("phone", phone);
                         startActivity(intent3);
                         return true;
                     case R.id.bnprofile:
                         Intent intent2 = new Intent(vehicle.this, profile.class);
-                        intent2.putExtra("phone",phone);
+                        intent2.putExtra("phone", phone);
                         startActivity(intent2);
                         return true;
                     case R.id.bnvehicel:
@@ -127,7 +127,7 @@ public class vehicle extends AppCompatActivity {
 
         btnFloat.setOnClickListener(view -> {
             Intent intent1 = new Intent(this, inforMain.class);
-            intent1.putExtra("phone",phone);
+            intent1.putExtra("phone", phone);
             startActivity(intent1);
         });
         btnadd.setOnClickListener(view -> {

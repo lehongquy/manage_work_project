@@ -78,6 +78,7 @@ public class screenSignup extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
+
     @SuppressLint({"NewApi", "LocalSuppress"})
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -87,8 +88,8 @@ public class screenSignup extends AppCompatActivity {
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
 
-byte[] imgByte = getByteUri(getApplicationContext(), mImageUri);
- base64 = Base64.getEncoder().encodeToString(imgByte);
+            byte[] imgByte = getByteUri(getApplicationContext(), mImageUri);
+            base64 = Base64.getEncoder().encodeToString(imgByte);
             byte[] decodeString = Base64.getDecoder().decode(base64);
             Bitmap decodeByte = BitmapFactory.decodeByteArray(decodeString, 0, decodeString.length);
             imageView.setImageBitmap(decodeByte);
@@ -96,25 +97,28 @@ byte[] imgByte = getByteUri(getApplicationContext(), mImageUri);
 
         }
     }
-static byte[] getByteUri(Context context,Uri uri){
-    InputStream inputStream= null;
 
-    try {
-        inputStream= context.getContentResolver().openInputStream(uri);
-        ByteArrayOutputStream outputStream= new ByteArrayOutputStream();
-        int buffet = 1024;
-        byte[] buf= new byte[buffet];
-        int leng = 0;
-        while ((leng= inputStream.read(buf))!=-1){
-            outputStream.write(buf,0,leng);
-        }return outputStream.toByteArray();
-    } catch (FileNotFoundException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
+    static byte[] getByteUri(Context context, Uri uri) {
+        InputStream inputStream = null;
+
+        try {
+            inputStream = context.getContentResolver().openInputStream(uri);
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            int buffet = 1024;
+            byte[] buf = new byte[buffet];
+            int leng = 0;
+            while ((leng = inputStream.read(buf)) != -1) {
+                outputStream.write(buf, 0, leng);
+            }
+            return outputStream.toByteArray();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new byte[0];
     }
-    return new byte[0];
-}
+
     void createAccount() {
 
         String userName = edtuser.getText().toString();

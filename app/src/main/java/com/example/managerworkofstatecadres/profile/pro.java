@@ -1,7 +1,7 @@
 package com.example.managerworkofstatecadres.profile;
 
 public class pro {
-    String fullname, gmail, phone, position,image;
+    String fullname, gmail, phone, position, image;
 
 
     public pro() {
@@ -59,8 +59,8 @@ public class pro {
     public String gettoString() {
         return
                 "fullname='" + fullname + '\n' +
-                ", gmail='" + gmail + '\n' +
-                ", phone='" + phone + '\n' +
-                ", position='" + position ;
+                        ", gmail='" + gmail + '\n' +
+                        ", phone='" + phone + '\n' +
+                        ", position='" + position;
     }
 }

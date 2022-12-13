@@ -7,20 +7,21 @@
     android:orientation="vertical"
     android:weightSum="10"
     tools:context="com.example.managerworkofstatecadres.qr.inforMain">
-<androidx.viewpager2.widget.ViewPager2
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="8.5"
-    android:layout_above="@+id/bottomNv"
-     android:id="@+id/viewpage2"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpage2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/bottomNv"
+        android:layout_weight="8.5" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/bottomNv"
         android:background="@color/teal_200"
-        app:menu="@menu/bottomnv"
-/>
+        app:menu="@menu/bottomnv" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -28,27 +29,28 @@
         android:layout_weight="0.5">
 
         <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/Appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:id="@+id/Appbar"
-            tools:ignore="BottomAppBar" >
+            tools:ignore="BottomAppBar">
+
             <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bnView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/bnView"
-                app:menu="@menu/bngenered"
                 android:layout_marginEnd="16dp"
-                android:background="@color/zxing_transparent"/>
+                android:background="@color/zxing_transparent"
+                app:menu="@menu/bngenered" />
         </com.google.android.material.bottomappbar.BottomAppBar>
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/floatbtn"
             android:src="@drawable/ic_baseline_qr_code_scanner_24"
-            app:layout_anchor="@id/Appbar"/>
+            app:layout_anchor="@id/Appbar" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </LinearLayout>

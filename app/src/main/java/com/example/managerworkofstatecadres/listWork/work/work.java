@@ -119,22 +119,22 @@ public class work extends AppCompatActivity {
         Intent intent = getIntent();
         String phone = intent.getStringExtra("phone");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = database.getReference("user").child(phone).child("work"+phone);
+        DatabaseReference databaseReference = database.getReference("user").child(phone).child("work" + phone);
         btnadd.setOnClickListener(view -> {
             Intent intent1 = new Intent(this, addwork.class);
-            intent1.putExtra("phone",phone);
+            intent1.putExtra("phone", phone);
             startActivity(intent1);
         });
-        bottomNavigationView=findViewById(R.id.bnView);
-        btnFloat= findViewById(R.id.floatbtn);
+        bottomNavigationView = findViewById(R.id.bnView);
+        btnFloat = findViewById(R.id.floatbtn);
         bottomNavigationView.setSelectedItemId(R.id.bnwork);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.bnnotification:
                         Intent intent1 = new Intent(work.this, notification.class);
-                        intent1.putExtra("phone",phone);
+                        intent1.putExtra("phone", phone);
                         startActivity(intent1);
                         return true;
                     case R.id.bnwork:
@@ -142,12 +142,12 @@ public class work extends AppCompatActivity {
                         return true;
                     case R.id.bnprofile:
                         Intent intent2 = new Intent(work.this, profile.class);
-                        intent2.putExtra("phone",phone);
+                        intent2.putExtra("phone", phone);
                         startActivity(intent2);
                         return true;
                     case R.id.bnvehicel:
                         Intent intent3 = new Intent(work.this, vehicle.class);
-                        intent3.putExtra("phone",phone);
+                        intent3.putExtra("phone", phone);
                         startActivity(intent3);
                         return true;
 
@@ -158,7 +158,7 @@ public class work extends AppCompatActivity {
 
         btnFloat.setOnClickListener(view -> {
             Intent intent1 = new Intent(this, inforMain.class);
-            intent1.putExtra("phone",phone);
+            intent1.putExtra("phone", phone);
             startActivity(intent1);
         });
         super.onStart();
@@ -226,7 +226,7 @@ public class work extends AppCompatActivity {
 
     }
 
-    private  void openDialogDelete(workOject user){
+    private void openDialogDelete(workOject user) {
         new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.app_name))
                 .setMessage("Do you want  delete note?").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -235,21 +235,21 @@ public class work extends AppCompatActivity {
                         Intent intent = getIntent();
                         String phone = intent.getStringExtra("phone");
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReference = database.getReference("user").child(phone).child("work"+phone);
+                        DatabaseReference databaseReference = database.getReference("user").child(phone).child("work" + phone);
                         databaseReference.child(String.valueOf(user.getNamecv())).removeValue((error, ref) -> {
                             Toast.makeText(work.this, "Delete Success", Toast.LENGTH_SHORT).show();
                         });
                     }
-                }).setNegativeButton("Cancle",null).show();
+                }).setNegativeButton("Cancle", null).show();
 
     }
 
-    private  void openDialogUpdate(workOject user) {
+    private void openDialogUpdate(workOject user) {
         Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.updatework);
         Window window = dialog.getWindow();
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCancelable(false);
         EditText edtName = dialog.findViewById(R.id.nameWk);
@@ -269,14 +269,14 @@ public class work extends AppCompatActivity {
             Intent intent = getIntent();
             String phone = intent.getStringExtra("phone");
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference databaseReference = database.getReference("user").child(phone).child("work"+phone);
-            String  newName = edtName.getText().toString().trim();
-            String  newContext = edtContext.getText().toString().trim();
-            String  newTime = edtTime.getText().toString().trim();
-            String  newLocation = edtLocation.getText().toString().trim();
-            String  newFloor = edtFloor.getText().toString().trim();
-            String  newRoom = edtRoom.getText().toString().trim();
-            String  newCritical = edtCritical.getText().toString().trim();
+            DatabaseReference databaseReference = database.getReference("user").child(phone).child("work" + phone);
+            String newName = edtName.getText().toString().trim();
+            String newContext = edtContext.getText().toString().trim();
+            String newTime = edtTime.getText().toString().trim();
+            String newLocation = edtLocation.getText().toString().trim();
+            String newFloor = edtFloor.getText().toString().trim();
+            String newRoom = edtRoom.getText().toString().trim();
+            String newCritical = edtCritical.getText().toString().trim();
             user.setNamecv(newName);
             user.setCritical(newCritical);
             user.setContextcv(newContext);
@@ -284,10 +284,10 @@ public class work extends AppCompatActivity {
             user.setFloor(newFloor);
             user.setRoom(newRoom);
             user.setLocation(newLocation);
-            databaseReference.child(String.valueOf(user.getNamecv())).updateChildren(user.toMap(),(error, ref) ->{
+            databaseReference.child(String.valueOf(user.getNamecv())).updateChildren(user.toMap(), (error, ref) -> {
                 Toast.makeText(this, "Update success", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-            } );
+            });
         });
         dialog.show();
     }

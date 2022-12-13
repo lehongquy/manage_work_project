@@ -41,7 +41,6 @@ public class changePass extends AppCompatActivity {
         saveButton = findViewById(R.id.saveButton);
 
 
-
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,14 +55,13 @@ public class changePass extends AppCompatActivity {
     }
 
 
-
-    public boolean isPasswordChanged(){
-        Intent intent  = getIntent();
-        String phone= intent.getStringExtra("phone");
+    public boolean isPasswordChanged() {
+        Intent intent = getIntent();
+        String phone = intent.getStringExtra("phone");
         String passnew = editPassword.getText().toString();
         String passRenew = editRePassWord.getText().toString();
         String passold = editPassold.getText().toString();
-        if (passRenew.isEmpty() || passold.isEmpty()|| passnew.isEmpty()) {
+        if (passRenew.isEmpty() || passold.isEmpty() || passnew.isEmpty()) {
             Toast.makeText(this, "Please,Input pass ", Toast.LENGTH_SHORT).show();
         } else {
             reference.child("user").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -96,4 +94,5 @@ public class changePass extends AppCompatActivity {
             });
         }
         return false;
-    }}
+    }
+}

@@ -1,7 +1,7 @@
 package com.example.managerworkofstatecadres.qr;
 
 public class inforGuest {
-    String fullname, gmail,position,phone;
+    String fullname, gmail, position, phone;
 
     public inforGuest(String fullname, String gmail, String position, String phone) {
         this.fullname = fullname;
@@ -49,9 +49,9 @@ public class inforGuest {
     public String toString() {
         return
                 "Name='" + fullname + '\n' +
-                "gmail='" + gmail + '\n' +
-                "position='" + position + '\n' +
-                " phone='" + phone
-              ;
+                        "gmail='" + gmail + '\n' +
+                        "position='" + position + '\n' +
+                        " phone='" + phone
+                ;
     }
 }

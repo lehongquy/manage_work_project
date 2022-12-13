@@ -1,8 +1,7 @@
 package com.example.managerworkofstatecadres.listNotification;
 
-public class ntObject
-{
-    String nament, contextnt, timent,critical;
+public class ntObject {
+    String nament, contextnt, timent, critical;
 
     public ntObject() {
     }

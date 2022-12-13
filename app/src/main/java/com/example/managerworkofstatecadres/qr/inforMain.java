@@ -31,6 +31,7 @@ public class inforMain extends AppCompatActivity {
     private ViewPager2 viewPager2;
     private BottomNavigationView view;
     BottomNavigationView bottomNavigationView;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,29 +45,29 @@ public class inforMain extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference("user").child(phone);
         myViewPage page = new myViewPage(this);
-        bottomNavigationView=findViewById(R.id.bnView);
+        bottomNavigationView = findViewById(R.id.bnView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.bnnotification:
                         Intent intent = new Intent(inforMain.this, notification.class);
-                        intent.putExtra("phone",phone);
+                        intent.putExtra("phone", phone);
                         startActivity(intent);
                         return true;
                     case R.id.bnwork:
                         Intent intent1 = new Intent(inforMain.this, work.class);
-                        intent1.putExtra("phone",phone);
+                        intent1.putExtra("phone", phone);
                         startActivity(intent1);
                         return true;
                     case R.id.bnprofile:
                         Intent intent2 = new Intent(inforMain.this, profile.class);
-                        intent2.putExtra("phone",phone);
+                        intent2.putExtra("phone", phone);
                         startActivity(intent2);
                         return true;
                     case R.id.bnvehicel:
                         Intent intent3 = new Intent(inforMain.this, vehicle.class);
-                        intent3.putExtra("phone",phone);
+                        intent3.putExtra("phone", phone);
                         startActivity(intent3);
                         return true;
 
@@ -74,7 +75,6 @@ public class inforMain extends AppCompatActivity {
                 return false;
             }
         });
-
 
 
         Read();
@@ -112,9 +112,10 @@ public class inforMain extends AppCompatActivity {
             return true;
         });
     }
-String infor1="";
 
-    void Read (){
+    String infor1 = "";
+
+    void Read() {
         Intent intent = getIntent();
         String phone = intent.getStringExtra("phone");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -124,7 +125,7 @@ String infor1="";
             @SuppressLint("NewApi")
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 pro infor = snapshot.getValue(pro.class);
-                infor1=infor.gettoString();
+                infor1 = infor.gettoString();
 
 
 //                byte[] decodeString = Base64.getDecoder().decode(infor.getImage());

@@ -3,22 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".qr.qrCode"
+    android:orientation="vertical"
     android:weightSum="10"
-    android:orientation="vertical">
+    tools:context="com.example.managerworkofstatecadres.qr.inforMain">
 
     <com.budiyev.android.codescanner.CodeScannerView
         android:id="@+id/scanner_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="3"
-        tools:ignore="MissingClass"
-        />
-<TextView
-    android:layout_weight="7"
-    android:id="@+id/infor_qr"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:text="hi"/>
+        tools:ignore="MissingClass" />
+
+    <TextView
+        android:id="@+id/infor_qr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="7"
+        android:gravity="center"
+        android:text="hi" />
 </LinearLayout>

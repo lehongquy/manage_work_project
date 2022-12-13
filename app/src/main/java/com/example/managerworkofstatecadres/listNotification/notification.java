@@ -72,29 +72,29 @@ public class notification extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = database.getReference("user").child(phone);
         myViewPage page = new myViewPage(this);
-        bottomNavigationView=findViewById(R.id.bnView);
-        btnFloat= findViewById(R.id.floatbtn);
+        bottomNavigationView = findViewById(R.id.bnView);
+        btnFloat = findViewById(R.id.floatbtn);
         bottomNavigationView.setSelectedItemId(R.id.bnnotification);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.bnnotification:
 
                         return true;
                     case R.id.bnwork:
                         Intent intent1 = new Intent(notification.this, work.class);
-                        intent1.putExtra("phone",phone);
+                        intent1.putExtra("phone", phone);
                         startActivity(intent1);
                         return true;
                     case R.id.bnprofile:
                         Intent intent2 = new Intent(notification.this, profile.class);
-                        intent2.putExtra("phone",phone);
+                        intent2.putExtra("phone", phone);
                         startActivity(intent2);
                         return true;
                     case R.id.bnvehicel:
                         Intent intent3 = new Intent(notification.this, vehicle.class);
-                        intent3.putExtra("phone",phone);
+                        intent3.putExtra("phone", phone);
                         startActivity(intent3);
                         return true;
 
@@ -105,7 +105,7 @@ public class notification extends AppCompatActivity {
 
         btnFloat.setOnClickListener(view -> {
             Intent intent1 = new Intent(this, inforMain.class);
-            intent1.putExtra("phone",phone);
+            intent1.putExtra("phone", phone);
             startActivity(intent1);
         });
     }
@@ -139,7 +139,7 @@ public class notification extends AppCompatActivity {
         Intent intent = getIntent();
         String phone = intent.getStringExtra("phone");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = database.getReference("user").child(phone).child("notification"+phone);
+        DatabaseReference databaseReference = database.getReference("user").child(phone).child("notification" + phone);
 
         super.onStart();
         Query query = databaseReference.orderByChild("critical");

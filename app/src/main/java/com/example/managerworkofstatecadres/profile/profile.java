@@ -147,21 +147,21 @@ public class profile extends AppCompatActivity {
         String phone = intent.getStringExtra("phone");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("user");
-        bottomNavigationView=findViewById(R.id.bnView);
-        btnFloat= findViewById(R.id.floatbtn);
+        bottomNavigationView = findViewById(R.id.bnView);
+        btnFloat = findViewById(R.id.floatbtn);
         bottomNavigationView.setSelectedItemId(R.id.bnprofile);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.bnnotification:
                         Intent intent2 = new Intent(profile.this, notification.class);
-                        intent2.putExtra("phone",phone);
+                        intent2.putExtra("phone", phone);
                         startActivity(intent2);
                         return true;
                     case R.id.bnwork:
                         Intent intent1 = new Intent(profile.this, work.class);
-                        intent1.putExtra("phone",phone);
+                        intent1.putExtra("phone", phone);
                         startActivity(intent1);
                         return true;
                     case R.id.bnprofile:
@@ -169,7 +169,7 @@ public class profile extends AppCompatActivity {
                         return true;
                     case R.id.bnvehicel:
                         Intent intent3 = new Intent(profile.this, vehicle.class);
-                        intent3.putExtra("phone",phone);
+                        intent3.putExtra("phone", phone);
                         startActivity(intent3);
                         return true;
 
@@ -180,7 +180,7 @@ public class profile extends AppCompatActivity {
 
         btnFloat.setOnClickListener(view -> {
             Intent intent1 = new Intent(this, inforMain.class);
-            intent1.putExtra("phone",phone);
+            intent1.putExtra("phone", phone);
             startActivity(intent1);
         });
 
@@ -247,6 +247,7 @@ public class profile extends AppCompatActivity {
         }
         return new byte[0];
     }
+
     private void bytesToImage(ImageView imageView, String base64String) {
         if (!base64String.isEmpty()) {
             byte[] bytes = new byte[0];

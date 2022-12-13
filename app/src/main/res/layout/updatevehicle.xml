@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-  android:layout_gravity="center"
-
+    android:layout_gravity="center"
     app:cardBackgroundColor="@android:color/white"
     app:cardCornerRadius="5dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,6 +42,7 @@
             android:textColorHint="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
+
         <EditText
             android:id="@+id/Tripvc"
             android:layout_width="match_parent"
@@ -56,6 +57,7 @@
             android:textColorHint="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
+
         <EditText
             android:id="@+id/Departurevc"
             android:layout_width="match_parent"
@@ -85,6 +87,7 @@
             android:textColorHint="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
+
         <EditText
             android:id="@+id/Criticalvc"
             android:layout_width="match_parent"
@@ -99,6 +102,7 @@
             android:textColorHint="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnUpdatevc"
             android:layout_width="match_parent"

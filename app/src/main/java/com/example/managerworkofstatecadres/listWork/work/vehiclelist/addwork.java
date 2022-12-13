@@ -16,18 +16,19 @@ import com.hq.manager_work.R;
 
 public class addwork extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://mosc-47a15-default-rtdb.firebaseio.com/");
-    EditText edtName,edtContext,edtTime,edtLocation,edtFloor,edtRoom,edtCritical;
+    EditText edtName, edtContext, edtTime, edtLocation, edtFloor, edtRoom, edtCritical;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addwork);
-         edtName = findViewById(R.id.addnameCv);
-         edtContext = findViewById(R.id.addcontextCv);
-         edtTime = findViewById(R.id.addtimeCv);
+        edtName = findViewById(R.id.addnameCv);
+        edtContext = findViewById(R.id.addcontextCv);
+        edtTime = findViewById(R.id.addtimeCv);
         edtLocation = findViewById(R.id.addlocationCv);
-         edtFloor = findViewById(R.id.addFloor);
-         edtRoom = findViewById(R.id.addroomCv);
+        edtFloor = findViewById(R.id.addFloor);
+        edtRoom = findViewById(R.id.addroomCv);
         edtCritical = findViewById(R.id.addcriticalCv);
         Button btnadd = findViewById(R.id.buttonAddCv);
         Button btnCancle = findViewById(R.id.buttonCancelCv);
@@ -39,7 +40,8 @@ public class addwork extends AppCompatActivity {
         });
 
     }
-    void  Createadd(){
+
+    void Createadd() {
         String Namecv = edtName.getText().toString();
         String Contextcv = edtContext.getText().toString();
         String Timecv = edtTime.getText().toString();
@@ -52,19 +54,18 @@ public class addwork extends AppCompatActivity {
         String phone = intent.getStringExtra("phone");
 
 
-            databaseReference.child("user").child(phone).child("work" + phone).child( Namecv).child("namecv").setValue(Namecv);
-            databaseReference.child("user").child(phone).child("work" + phone).child(Namecv).child("contextcv").setValue(Contextcv);
-            databaseReference.child("user").child(phone).child("work" + phone).child(Namecv).child("timecv").setValue(Timecv);
-            databaseReference.child("user").child(phone).child("work" + phone).child( Namecv).child("location").setValue(Location);
-            databaseReference.child("user").child(phone).child("work" + phone).child(Namecv).child("floor").setValue(Floor);
-            databaseReference.child("user").child(phone).child("work" + phone).child( Namecv).child("room").setValue(Roomcv);
-            databaseReference.child("user").child(phone).child("work" + phone).child(Namecv).child("critical").setValue(Critical);
-            Intent intent1 = new Intent(this, work.class);
-            intent1.putExtra("phone", phone);
-            startActivity(intent1);
-            Toast.makeText(this, "Add success", Toast.LENGTH_SHORT).show();
+        databaseReference.child("user").child(phone).child("work" + phone).child(Namecv).child("namecv").setValue(Namecv);
+        databaseReference.child("user").child(phone).child("work" + phone).child(Namecv).child("contextcv").setValue(Contextcv);
+        databaseReference.child("user").child(phone).child("work" + phone).child(Namecv).child("timecv").setValue(Timecv);
+        databaseReference.child("user").child(phone).child("work" + phone).child(Namecv).child("location").setValue(Location);
+        databaseReference.child("user").child(phone).child("work" + phone).child(Namecv).child("floor").setValue(Floor);
+        databaseReference.child("user").child(phone).child("work" + phone).child(Namecv).child("room").setValue(Roomcv);
+        databaseReference.child("user").child(phone).child("work" + phone).child(Namecv).child("critical").setValue(Critical);
+        Intent intent1 = new Intent(this, work.class);
+        intent1.putExtra("phone", phone);
+        startActivity(intent1);
+        Toast.makeText(this, "Add success", Toast.LENGTH_SHORT).show();
 
 
-
-
-}}
+    }
+}

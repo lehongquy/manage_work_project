@@ -31,14 +31,17 @@ import java.util.Map;
 
 public class vehicleRecycleAdapter extends RecyclerView.Adapter<vehicleRecycleAdapter.MyViewHolder> {
 
-DatabaseReference database  = FirebaseDatabase.getInstance().getReference("user");
+    DatabaseReference database = FirebaseDatabase.getInstance().getReference("user");
     List<licenad> slist;
-    private  Clicklist mclick;
-interface   Clicklist {
-    void onclickUpdate(licenad user);
-    void onclickDelete(licenad user);
-}
-    public vehicleRecycleAdapter(List<licenad> slist,Clicklist clicklist) {
+    private Clicklist mclick;
+
+    interface Clicklist {
+        void onclickUpdate(licenad user);
+
+        void onclickDelete(licenad user);
+    }
+
+    public vehicleRecycleAdapter(List<licenad> slist, Clicklist clicklist) {
         this.slist = slist;
         this.mclick = clicklist;
     }
@@ -52,19 +55,19 @@ interface   Clicklist {
     }
 
 
-
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         licenad users = slist.get(position);
         if (users == null) {
             return;
-        }holder.textTitle.setText("Trip : " + users.getTrip());
+        }
+        holder.textTitle.setText("Trip : " + users.getTrip());
         holder.textNametx.setText("Name : " + users.getNamedriver());
 
         holder.textDeparture.setText("Departure : " + users.getDeparture());
         holder.textLicense.setText("License : " + users.getLicense());
         holder.textPeople.setText("People : " + users.getPeople());
-        holder.textCritical.setText("Critical:"+users.getCritical());
+        holder.textCritical.setText("Critical:" + users.getCritical());
         holder.buttonUpdate.setOnClickListener(view -> {
             mclick.onclickUpdate(users);
         });
@@ -84,19 +87,21 @@ interface   Clicklist {
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView textNametx, textTitle, textDeparture, textLicense,textPeople,textCritical;
-Button buttonUpdate,buttonDelete;
+        TextView textNametx, textTitle, textDeparture, textLicense, textPeople, textCritical;
+        Button buttonUpdate, buttonDelete;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
 
-                    textTitle= itemView.findViewById(R.id.text_view_title);    textNametx= itemView.findViewById(R.id.text_view_namedriver);
-                    textDeparture= itemView.findViewById(R.id.text_view_departure);
-                    textLicense= itemView.findViewById(R.id.text_view_license);
-                    textPeople= itemView.findViewById(R.id.text_view_people);
-                    textCritical= itemView.findViewById(R.id.text_view_critical);
-            buttonUpdate= itemView.findViewById(R.id.buttonUpdate);
-                    buttonDelete= itemView.findViewById(R.id.buttonDelete);
+            textTitle = itemView.findViewById(R.id.text_view_title);
+            textNametx = itemView.findViewById(R.id.text_view_namedriver);
+            textDeparture = itemView.findViewById(R.id.text_view_departure);
+            textLicense = itemView.findViewById(R.id.text_view_license);
+            textPeople = itemView.findViewById(R.id.text_view_people);
+            textCritical = itemView.findViewById(R.id.text_view_critical);
+            buttonUpdate = itemView.findViewById(R.id.buttonUpdate);
+            buttonDelete = itemView.findViewById(R.id.buttonDelete);
         }
     }
 }

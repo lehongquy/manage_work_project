@@ -66,9 +66,9 @@ public class OtpSendActivity extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
                                             String verificationCode = edtCode.getText().toString();
-                                            if(verificationId.isEmpty()) return;
+                                            if (verificationId.isEmpty()) return;
                                             //create a credential
-                                            PhoneAuthCredential credential=PhoneAuthProvider.getCredential(verificationId,verificationCode);
+                                            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, verificationCode);
                                             signInUser(credential);
                                         }
                                     });
@@ -85,10 +85,10 @@ public class OtpSendActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener() {
                     @Override
                     public void onComplete(@NonNull Task task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             startActivity(new Intent(OtpSendActivity.this, work.class));
                             finish();
-                        }else {
+                        } else {
                             // Log.d(TAG, "onComplete:"+task.getException().getLocalizedMessage());
                             edtCode.setError("Sign in fail");
                         }

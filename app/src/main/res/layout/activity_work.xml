@@ -2,48 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wrapper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10"
     android:orientation="vertical"
-    android:id="@+id/wrapper"
+    android:weightSum="10"
     tools:context="com.example.managerworkofstatecadres.listWork.work.work">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="9.5">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycviewwk"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9.5">
 
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-    <ImageView
-        android:id="@+id/sort2"
-        android:layout_width="30dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycviewwk"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-        android:layout_height="30dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_baseline_swipe_up_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnaddwork"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <ImageView
+            android:id="@+id/sort2"
+            android:layout_width="30dp"
+
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/ic_baseline_swipe_up_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnaddwork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -51,26 +53,27 @@
         android:layout_weight="0.5">
 
         <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/Appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:id="@+id/Appbar"
-            tools:ignore="BottomAppBar" >
+            tools:ignore="BottomAppBar">
+
             <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bnView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/bnView"
-                app:menu="@menu/bngenered"
                 android:layout_marginEnd="16dp"
-                android:background="@color/zxing_transparent"/>
+                android:background="@color/zxing_transparent"
+                app:menu="@menu/bngenered" />
         </com.google.android.material.bottomappbar.BottomAppBar>
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/floatbtn"
             android:src="@drawable/ic_baseline_qr_code_scanner_24"
-            app:layout_anchor="@id/Appbar"/>
+            app:layout_anchor="@id/Appbar" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </LinearLayout>
